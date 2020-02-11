@@ -7,7 +7,7 @@ namespace Papiku
     class WeeklyMenu : Menu
     {
 
-        public DailyMenu[] DailyMenus { get; } = new DailyMenu[7]{
+        public DailyMenu[] DailyMenus { get; set; } = new DailyMenu[7]{
         new DailyMenu(),
         new DailyMenu(),
         new DailyMenu(),

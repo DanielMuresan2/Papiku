@@ -5,16 +5,16 @@ using static System.Console;
 
 namespace Papiku
 {
-    class PapikuEntryPoint
+    class ModifyMealsSection
     {
         private int option;
-        public static PapikuEntryPoint Instance { get; } = new PapikuEntryPoint();
+        public static ModifyMealsSection Instance { get; } = new ModifyMealsSection(); //singleton; no set => no modifications
 
-        private PapikuEntryPoint() { }
-        public void Start()
+        private ModifyMealsSection() { }
+
+        public void begin()
         {
-            PrintWelcomeMessage();
-            PrintMainMenu();
+            PrintModifyMenu();
             ReadFromKeyboardAndExecute();
         }
         private void ReadFromKeyboardAndExecute()
@@ -35,31 +35,29 @@ namespace Papiku
         {
             switch (option)
             {
-                case 1: 
-                    ModifyMealsSection mms = ModifyMealsSection.Instance;
-                    mms.begin();     
-                    break;
+                case 1: MenusLister menusLister = new MenusLister(); break;
                 case 2: break;
                 case 9: break;
                 default: break;
             }
         }
 
+        internal static ModifyMealsSection getInstance()
+        {
+            throw new NotImplementedException();
+        }
+
         private void PrintInvalidInput()
         {
             WriteLine("Invalid input, please choose one option from the ones available");
         }
-        private void PrintWelcomeMessage()
-        {
-            WriteLine("Welcome to Papiku!");
-            WriteLine("What are we going to cook for the kids?\n");
-        }
-        private void PrintMainMenu()
+        private static void PrintModifyMenu()
         {
             WriteLine("Please choose an option from below:\n");
-            WriteLine("1. Modify the meals (add,edit,delete,show)");
-            WriteLine("2. Get Recommended meals");
-            WriteLine("9. Exit Papiku\n");
+            WriteLine("1. List your meals");
+            WriteLine("2. Add a new meal");
+            WriteLine("3. Edit an existing meal");
+            WriteLine("4. Delete an existing meal\n");
             WriteLine("You option is: ");
         }
     }

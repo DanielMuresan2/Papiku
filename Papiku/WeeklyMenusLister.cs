@@ -4,10 +4,7 @@ using System.Text;
 
 namespace Papiku
 {
-    class Menu
+    class WeeklyMenusLister : MenusLister
     {
-        protected string? description { get; set; }
-
-
     }
 }

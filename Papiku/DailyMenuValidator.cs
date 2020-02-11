@@ -7,7 +7,7 @@ namespace Papiku
 {
     class DailyMenuValidator
     {
-        public static bool IsOk(DailyMenu menu)
+        internal static bool IsOk(DailyMenu menu)
         {
             foreach (CurrentMenu m in menu.currentMenus)
                 if (!CurrentMenuValidator.IsOk(m))

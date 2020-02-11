@@ -6,7 +6,7 @@ namespace Papiku
 {
     class MealValidator
     {
-        public static bool IsOk(Menu menu)
+        internal static bool IsOk(Menu menu)
         {
             switch (menu)
             {

@@ -7,7 +7,7 @@ namespace Papiku
 {
     class CurrentMenuValidator
     {
-        public static bool IsOk(CurrentMenu menu)
+        internal static bool IsOk(CurrentMenu menu)
         {
                 WriteLine($"CurrentMenuValidator");
             return true;
