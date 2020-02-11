@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Papiku
 {
-    class CurrentMenusLister : MenusLister
+    class CurrentMenusLister 
     {
     }
 }

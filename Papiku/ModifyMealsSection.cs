@@ -35,18 +35,10 @@ namespace Papiku
         {
             switch (option)
             {
-                case 1: MenusLister menusLister = new MenusLister(); break;
-                case 2: break;
-                case 9: break;
-                default: break;
+                case 1: MenusLister.Instance.Begin(); break;
+                case 2: RecommendedMeals.Insance.Begin(); break;
             }
         }
-
-        internal static ModifyMealsSection getInstance()
-        {
-            throw new NotImplementedException();
-        }
-
         private void PrintInvalidInput()
         {
             WriteLine("Invalid input, please choose one option from the ones available");
@@ -57,7 +49,8 @@ namespace Papiku
             WriteLine("1. List your meals");
             WriteLine("2. Add a new meal");
             WriteLine("3. Edit an existing meal");
-            WriteLine("4. Delete an existing meal\n");
+            WriteLine("4. Delete an existing meal");
+            WriteLine("9. Go back\n");
             WriteLine("You option is: ");
         }
     }

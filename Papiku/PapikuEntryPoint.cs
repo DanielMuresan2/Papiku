@@ -35,13 +35,12 @@ namespace Papiku
         {
             switch (option)
             {
-                case 1: 
-                    ModifyMealsSection mms = ModifyMealsSection.Instance;
-                    mms.begin();     
+                case 1:
+                    ModifyMealsSection.Instance.begin();    
                     break;
-                case 2: break;
-                case 9: break;
-                default: break;
+                case 2: 
+                    RecommendedMeals.Insance.Begin();
+                    break;
             }
         }
 
