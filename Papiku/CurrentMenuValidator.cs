@@ -7,10 +7,9 @@ namespace Papiku
 {
     class CurrentMenuValidator
     {
-        public static bool IsOk(Menu menu)
+        public static bool IsOk(CurrentMenu menu)
         {
-            if (menu is CurrentMenu)
-                WriteLine($"CurrentMenuValidator {menu.GetType()}");
+                WriteLine($"CurrentMenuValidator");
             return true;
         }
     }

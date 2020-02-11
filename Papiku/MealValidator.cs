@@ -10,7 +10,7 @@ namespace Papiku
         {
             switch (menu)
             {
-                //case WeeklyMenu w: return IsOk(w);
+                case WeeklyMenu w: return WeeklyMenuValidator.IsOk(w);
                 case DailyMenu d: return DailyMenuValidator.IsOk(d);
                 case CurrentMenu c: return CurrentMenuValidator.IsOk(c);
                 default: return false;

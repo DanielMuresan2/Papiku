@@ -9,14 +9,13 @@ namespace Papiku
     {
         public static bool IsOk(DailyMenu menu)
         {
-            if (menu is DailyMenu)//ok
-                foreach (CurrentMenu m in menu.currentMenus)
-                    if (!CurrentMenuValidator.IsOk(m))
-                    {
-                        WriteLine($"DailyMenuValidator {menu.GetType()}");
-                        return false;
-                    }
-            Write("It's fine");
+            foreach (CurrentMenu m in menu.currentMenus)
+                if (!CurrentMenuValidator.IsOk(m))
+                {
+                        
+                    return false;
+                }
+            WriteLine($"DailyMenuValidator");
             return true;
         }
     }
