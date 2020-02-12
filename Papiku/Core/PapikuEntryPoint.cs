@@ -5,19 +5,17 @@ using static System.Console;
 
 namespace Papiku
 {
-    class PapikuEntryPoint
+    static class PapikuEntryPoint
     {
-        private int option;
-        public static PapikuEntryPoint Instance { get; } = new PapikuEntryPoint();
-
-        private PapikuEntryPoint() { }
-        public void Start()
+        static private int option;
+        static PapikuEntryPoint() => option = 0;
+        public static void Start()
         {
             PrintWelcomeMessage();
             PrintMainMenu();
             ReadFromKeyboardAndExecute();
         }
-        private void ReadFromKeyboardAndExecute()
+        static void ReadFromKeyboardAndExecute()
         {
             while (option != 9)
             {
@@ -31,7 +29,7 @@ namespace Papiku
             }
         }
 
-        private void ExecuteOption()
+        static void ExecuteOption()
         {
             switch (option)
             {
@@ -44,16 +42,16 @@ namespace Papiku
             }
         }
 
-        private void PrintInvalidInput()
+        static void PrintInvalidInput()
         {
             WriteLine("Invalid input, please choose one option from the ones available");
         }
-        private void PrintWelcomeMessage()
+        static void PrintWelcomeMessage()
         {
             WriteLine("Welcome to Papiku!");
             WriteLine("What are we going to cook for the kids?\n");
         }
-        private void PrintMainMenu()
+        static void PrintMainMenu()
         {
             WriteLine("Please choose an option from below:\n");
             WriteLine("1. Modify the meals (add,edit,delete,show)");
