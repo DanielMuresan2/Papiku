@@ -7,12 +7,12 @@ using static System.Console;
 
 namespace Papiku
 {
-    class WeeklyMenuValidator
+    static class WeeklyMenuValidator
     {
-        internal static bool IsOk(WeeklyMenu menu)
+        public static bool IsOk(this WeeklyMenu menu)
         {
             foreach (DailyMenu d in menu.DailyMenus)
-                if (!DailyMenuValidator.IsOk(d))
+                if (!d.IsOk())
                     return false;
             WriteLine("WeeklyMenuValidator");
             return true;

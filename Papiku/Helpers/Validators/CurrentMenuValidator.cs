@@ -5,9 +5,9 @@ using static System.Console;
 
 namespace Papiku
 {
-    class CurrentMenuValidator
+    static class CurrentMenuValidator
     {
-        internal static bool IsOk(CurrentMenu menu)
+        public static bool IsOk(this CurrentMenu menu)
         {
                 WriteLine($"CurrentMenuValidator");
             return true;

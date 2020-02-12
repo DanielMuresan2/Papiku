@@ -1,3 +1,4 @@
-﻿- replace singletons and static calls with extension methods (they are slick!)
-- add even more abstraction to the prints -- something like string resources in Android
+﻿- replace singletons and static calls with extension methods (they are slick!) DONE
+- add even more abstraction to the prints -- string resources ca in typescript, dar pe maine
 - extract packages DONE
+- can I move from public to internal?

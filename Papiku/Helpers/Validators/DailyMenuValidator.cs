@@ -5,12 +5,13 @@ using static System.Console;
 
 namespace Papiku
 {
-    class DailyMenuValidator
+    static class DailyMenuValidator
     {
-        internal static bool IsOk(DailyMenu menu)
+        public static bool IsOk(this DailyMenu menu)
         {
             foreach (CurrentMenu m in menu.currentMenus)
-                if (!CurrentMenuValidator.IsOk(m))
+                //if (!CurrentMenuValidator.IsOk(m))
+                if (!m.IsOk())
                 {
                         
                     return false;
