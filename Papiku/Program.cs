@@ -1,4 +1,5 @@
 ﻿using static System.Console;
+using static Papiku.PapikuEntryPoint;
 
 namespace Papiku
 {
@@ -6,7 +7,7 @@ namespace Papiku
     {
         static void Main(string[] args)
         {
-            
+            Start();
         }
     }
 }

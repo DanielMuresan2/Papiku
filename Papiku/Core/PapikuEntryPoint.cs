@@ -5,7 +5,7 @@ using static System.Console;
 
 namespace Papiku
 {
-    static class PapikuEntryPoint
+     static class PapikuEntryPoint
     {
         static private int option;
         static PapikuEntryPoint() => option = 0;
