@@ -10,5 +10,10 @@ namespace Papiku.Core.DataManipulation.Adding
         {
             throw new NotImplementedException();
         }
+
+        public void Execute()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

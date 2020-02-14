@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Papiku.Core.DataManipulation.Adding
+namespace Papiku.Core.DataManipulation
 {
-    interface IAdder : IExecutor
+    static class ModifyMenus
     {
-        
+         
     }
 }

@@ -2,8 +2,8 @@
 
 namespace Papiku.Core.DataManipulation.Listing
 {
-    public interface ILister
+    public interface ILister : IExecutor
     {
-        public void PrintMenu();
+        void FormatAndPrintMenu();
     }
 }

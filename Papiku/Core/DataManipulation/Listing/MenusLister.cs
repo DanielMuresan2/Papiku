@@ -8,11 +8,11 @@ namespace Papiku.Core.DataManipulation.Listing
 {
     static class MenusLister
     {
-        private static ILister currentMenuLister;
-        private static ILister dailyMenuLister;
-        private static ILister weeklytMenuLister;
-
         private static int option;
+        private static IExecutor currentMenuLister;
+        private static IExecutor dailyMenuLister;
+        private static IExecutor weeklytMenuLister;
+
 
         static MenusLister()
         {
@@ -37,9 +37,9 @@ namespace Papiku.Core.DataManipulation.Listing
         {
             switch(option)
             {
-                case 1: currentMenuLister.PrintMenu(); break;
-                case 2: dailyMenuLister.PrintMenu(); break;
-                case 3: weeklytMenuLister.PrintMenu(); break;
+                case 1: currentMenuLister.Execute(); break;
+                case 2: dailyMenuLister.Execute(); break;
+                case 3: weeklytMenuLister.Execute(); break;
                 default: break;
             }
         }

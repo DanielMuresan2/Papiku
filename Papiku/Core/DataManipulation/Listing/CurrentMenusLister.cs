@@ -7,12 +7,17 @@ namespace Papiku.Core.DataManipulation.Listing
 {
     class CurrentMenuLister : ILister
     {
-        public void PrintMenu()
+        public void Execute()
         {
             /***
              * call data fetch service, once you get it, print it
              * different method for printing format
              * */
+            throw new NotImplementedException();
+        }
+
+        void ILister.FormatAndPrintMenu()
+        {
             throw new NotImplementedException();
         }
     }

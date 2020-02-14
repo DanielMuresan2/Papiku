@@ -6,7 +6,7 @@ namespace Papiku.Core.DataManipulation.Listing
 {
     class WeeklyMenusLister : ILister
     {
-        public void PrintMenu()
+        public void ExecuteListing()
         {
             /***
              * call data fetch service, once you get it, print it
