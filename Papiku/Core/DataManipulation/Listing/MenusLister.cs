@@ -25,7 +25,6 @@ namespace Papiku.Core.DataManipulation.Listing
             PrintListerMenu();
             ReadFromKeyboardAndExecute();
         }
-
         private static void ReadFromKeyboardAndExecute()
         {
             while (option != 9)
@@ -34,7 +33,6 @@ namespace Papiku.Core.DataManipulation.Listing
                 ExecuteOption();
             }
         }
-
         private static void ExecuteOption()
         {
             switch(option)
