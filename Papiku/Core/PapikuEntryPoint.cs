@@ -11,6 +11,7 @@ namespace Papiku.Core
      static class PapikuEntryPoint
     {
         static private int option;
+        static PapikuEntryPoint() => option = 0;
         public static void Start()
         {
             PrintWelcomeMessage();
