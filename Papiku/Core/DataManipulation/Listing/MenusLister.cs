@@ -6,16 +6,16 @@ using static Papiku.Helpers.IOValidator.InputValidator;
 
 namespace Papiku.Core.DataManipulation.Listing
 {
-    static class MenusLister
+    class MenusLister : ModifyMenus
     {
+        
         private static int option;
-        private static IExecutor currentMenuLister;
-        private static IExecutor dailyMenuLister;
-        private static IExecutor weeklytMenuLister;
+        
 
 
-        static MenusLister()
+        public MenusLister()
         {
+            Instance = new MenusLister();
             currentMenuLister = new CurrentMenuLister();
             dailyMenuLister = new DailyMenusLister();
             weeklytMenuLister = new WeeklyMenusLister();

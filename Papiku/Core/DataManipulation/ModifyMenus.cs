@@ -4,8 +4,16 @@ using System.Text;
 
 namespace Papiku.Core.DataManipulation
 {
-    static class ModifyMenus
+    abstract class ModifyMenus
     {
-         
+        protected ModifyMenus Instance { get; }
+        protected IExecutor currentMenuLister;
+        protected IExecutor dailyMenuLister;
+        protected IExecutor weeklytMenuLister;
+
+        protected ModifyMenus(ModifyMenus m)
+        {
+            Instance 
+        }
     }
-}
+}y

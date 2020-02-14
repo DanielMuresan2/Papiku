@@ -6,6 +6,6 @@ namespace Papiku.Core.DataManipulation
 {
     public interface IExecutor
     {
-        void Execute();
+        
     }
 }
