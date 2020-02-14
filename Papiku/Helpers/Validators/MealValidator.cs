@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Papiku.BusinessLogic;
 
-namespace Papiku
+namespace Papiku.Helpers.Validator
 {
-    class MealValidator
+    static class MealValidator
     {
-        internal static bool IsOk(Menu menu)
+        public static bool IsOk(this Menu menu)
         {
             switch (menu)
             {
-                case WeeklyMenu w: return WeeklyMenuValidator.IsOk(w);
-                case DailyMenu d: return DailyMenuValidator.IsOk(d);
-                case CurrentMenu c: return CurrentMenuValidator.IsOk(c);
+                case WeeklyMenu w: return w.IsOk();
+                case DailyMenu d: return d.IsOk();
+                case CurrentMenu c: return c.IsOk();
                 default: return false;
             }
+            
         }
     }
 }

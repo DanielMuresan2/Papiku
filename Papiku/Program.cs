@@ -1,5 +1,8 @@
 ﻿using static System.Console;
-using static Papiku.PapikuEntryPoint;
+
+using static Papiku.Core.PapikuEntryPoint;
+
+
 
 namespace Papiku
 {
@@ -7,7 +10,14 @@ namespace Papiku
     {
         static void Main(string[] args)
         {
-            Start();
+
+           /* WeeklyMenu w = new WeeklyMenu();
+            Menu d = new DailyMenu();
+            Menu m = new Menu();
+            WriteLine(m.IsOk());
+            */
+           Start();
+
         }
     }
 }

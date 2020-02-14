@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using static System.Console;
+using Papiku.Core.DataManipulation;
+using static Papiku.Helpers.IOValidator.InputValidator;
+using static Papiku.Helpers.PrinterWizard.SimplePrinter;
 
-namespace Papiku
+
+namespace Papiku.Core
 {
      static class PapikuEntryPoint
     {
@@ -15,49 +18,26 @@ namespace Papiku
             PrintMainMenu();
             ReadFromKeyboardAndExecute();
         }
-        static void ReadFromKeyboardAndExecute()
+        private static void ReadFromKeyboardAndExecute()
         {
             while (option != 9)
             {
-                while (!Int32.TryParse(ReadLine(), out option))
-                {
-                    PrintInvalidInput();
-                    option = 0;
-                }
-                WriteLine($"You entered {option}");
+                option = ReadIntegerAndValidate();
                 ExecuteOption();
             }
         }
-
-        static void ExecuteOption()
+        private static void ExecuteOption()
         {
             switch (option)
             {
                 case 1:
-                    ModifyMealsSection.Instance.begin();    
+                    ModifyMealsSection.Begin();    
                     break;
                 case 2: 
-                    RecommendedMeals.Insance.Begin();
+                   // RecommendedMeals.Insance.Begin();
                     break;
+                default: break;
             }
-        }
-
-        static void PrintInvalidInput()
-        {
-            WriteLine("Invalid input, please choose one option from the ones available");
-        }
-        static void PrintWelcomeMessage()
-        {
-            WriteLine("Welcome to Papiku!");
-            WriteLine("What are we going to cook for the kids?\n");
-        }
-        static void PrintMainMenu()
-        {
-            WriteLine("Please choose an option from below:\n");
-            WriteLine("1. Modify the meals (add,edit,delete,show)");
-            WriteLine("2. Get Recommended meals");
-            WriteLine("9. Exit Papiku\n");
-            WriteLine("You option is: ");
         }
     }
 }
