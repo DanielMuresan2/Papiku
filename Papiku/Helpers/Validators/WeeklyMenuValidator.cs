@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Text;
 
 using static System.Console;
+using Papiku.BusinessLogic;
 
-namespace Papiku
+namespace Papiku.Helpers.Validator
 {
     static class WeeklyMenuValidator
     {

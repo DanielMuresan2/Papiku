@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Papiku.Core.DataManipulation;
 using static Papiku.Helpers.IOValidator.InputValidator;
 using static Papiku.Helpers.PrinterWizard.SimplePrinter;
 
 
-namespace Papiku
+namespace Papiku.Core
 {
     static class PapikuEntryPoint
     {

@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Papiku
+namespace Papiku.BusinessLogic
 {
-    class Menu
+    class CurrentMenu : Menu
     {
-        protected string? description { get; set; }
-
-
     }
 }

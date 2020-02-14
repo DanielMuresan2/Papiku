@@ -1,5 +1,5 @@
 ﻿using static System.Console;
-using static Papiku.PapikuEntryPoint;
+using static Papiku.Core.PapikuEntryPoint;
 
 
 namespace Papiku

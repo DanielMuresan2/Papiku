@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Papiku.BusinessLogic;
 
-namespace Papiku
+namespace Papiku.Helpers.Validator
 {
     static class MealValidator
     {

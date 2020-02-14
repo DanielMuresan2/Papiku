@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Papiku
+namespace Papiku.BusinessLogic
 {
     class DailyMenu : Menu
     {
