@@ -6,12 +6,13 @@ namespace Papiku.Core.DataManipulation.Listing
 {
     class DailyMenusLister : ILister
     {
-        public void ExecuteListing()
+        public void Execute()
         {
-            /***
-             * call data fetch service, once you get it, print it
-             * different method for printing format
-             * */
+            throw new NotImplementedException();
+        }
+
+        public void FormatAndPrintMenu()
+        {
             throw new NotImplementedException();
         }
     }

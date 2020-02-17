@@ -11,9 +11,16 @@ namespace Papiku.Core.DataManipulation
     static class ModifyMealsSection
     {
         private static int option;
-        
+        private static IDataManipulationService listerService;
+        private static ILister dailyMenusLister;
+        private static ILister weeklyMenusLister;
 
-        static ModifyMealsSection() => option = 0;
+
+        static ModifyMealsSection()
+        {
+            listerService = MenusLister.Instance;
+
+        }
         public static void Begin() 
         {
             PrintModifyMenu();
@@ -32,7 +39,7 @@ namespace Papiku.Core.DataManipulation
         {
             switch (option)
             {
-                case 1: MenusLister.Begin(); break;
+                case 1: ; break;
                 case 2:  break;
                 case 3: break;
                 case 4: break;

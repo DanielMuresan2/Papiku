@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Papiku.Core.DataManipulation
+namespace Papiku.Core.DataManipulation.Deleting
 {
-    public interface IExecutor
+    class WeeklyMenuRemover
     {
-        
     }
 }

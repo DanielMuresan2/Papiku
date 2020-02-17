@@ -4,8 +4,7 @@ using System.Text;
 
 namespace Papiku.Core.DataManipulation.Deleting
 {
-    interface IRemover : IDataManipulationService
+    class DailyMenuRemover
     {
-        public void RemoveMenu();
     }
 }

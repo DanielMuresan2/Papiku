@@ -7,16 +7,17 @@ namespace Papiku.Core.DataManipulation.Listing
 {
     class CurrentMenuLister : ILister
     {
+        //voi sti care serviciu specializat imi va onora cerea? Nu ar trebui..
         public void Execute()
         {
             /***
-             * call data fetch service, once you get it, print it
+             * call data fetch service; once you get it, print it
              * different method for printing format
              * */
             throw new NotImplementedException();
         }
 
-        void ILister.FormatAndPrintMenu()
+       public void FormatAndPrintMenu()
         {
             throw new NotImplementedException();
         }

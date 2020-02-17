@@ -6,42 +6,40 @@ using static Papiku.Helpers.IOValidator.InputValidator;
 
 namespace Papiku.Core.DataManipulation.Listing
 {
-    class MenusLister : ModifyMenus
+    class MenusLister : IDataManipulationService
     {
-        
-        private static int option;
-        
-
-
-        public MenusLister()
+        private int option;
+        private ILister currentMenusLister;
+        private ILister dailyMenusLister;
+        private ILister weeklyMenusLister;
+        public static MenusLister Instance { get; } = new MenusLister();
+        private MenusLister()
         {
-            Instance = new MenusLister();
-            currentMenuLister = new CurrentMenuLister();
-            dailyMenuLister = new DailyMenusLister();
-            weeklytMenuLister = new WeeklyMenusLister();
+            currentMenusLister = new CurrentMenuLister();
+            dailyMenusLister = new DailyMenusLister();
+            weeklyMenusLister = new WeeklyMenusLister();
         }
-        public static void Begin()
+         public void Execute()
         {
             PrintListerMenu();
             ReadFromKeyboardAndExecute();
         }
-
-        private static void ReadFromKeyboardAndExecute()
+        private void ReadFromKeyboardAndExecute()
         {
-            while (option != 9)
+            while (Instance.option != 9)
             {
-                option = ReadIntegerAndValidate();
+                Instance.option = ReadIntegerAndValidate();
                 ExecuteOption();
             }
         }
 
         private static void ExecuteOption()
         {
-            switch(option)
+            switch(Instance.option)
             {
-                case 1: currentMenuLister.Execute(); break;
-                case 2: dailyMenuLister.Execute(); break;
-                case 3: weeklytMenuLister.Execute(); break;
+               case 1: Instance.currentMenusLister.Execute(); break;
+               case 2: Instance.dailyMenusLister.Execute(); break;
+               case 3: Instance.weeklyMenusLister.Execute(); break;
                 default: break;
             }
         }

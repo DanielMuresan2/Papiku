@@ -6,16 +6,14 @@ namespace Papiku.Core.DataManipulation.Adding
 {
     class MenusAdder 
     {
-        private static IExecutor currentMenuAdder;
-        private static IExecutor dailyMenuAdder;
-        private static IExecutor weeklytMenuAdder;
+        private static IDataManipulationService currentMenuAdder;
+        private static IDataManipulationService dailyMenuAdder;
+        private static IDataManipulationService weeklytMenuAdder;
 
 
         static MenusAdder()
         {
-            currentMenuAdder = new CurrentMenuAdder();
-            dailyMenuAdder = new DailyMenuAdder();
-            weeklytMenuAdder = new WeeklyMenuAdder();
+           
         }
     }
 }

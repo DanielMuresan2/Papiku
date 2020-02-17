@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Papiku.Core.DataManipulation.Adding
 {
-    interface IAdder : IExecutor
+    interface IAdder : IDataManipulationService
     {
         
     }
