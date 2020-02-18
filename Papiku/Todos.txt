@@ -3,3 +3,4 @@
 - can I move from public to internal?
 - MenusLister will have its own internal stoarge or share the storage with other DM components?
 - Consider Command pattern for Data Manipulation operations
+- extract readfromkeyboard methods

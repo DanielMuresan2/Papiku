@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Papiku.Core.DataManipulation;
-using static Papiku.Helpers.IOValidator.InputValidator;
+using static Papiku.Helpers.IO.InputValidator;
 using static Papiku.Helpers.PrinterWizard.SimplePrinter;
 
 

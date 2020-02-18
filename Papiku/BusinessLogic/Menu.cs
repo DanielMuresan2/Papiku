@@ -4,10 +4,12 @@ using System.Text;
 
 namespace Papiku.BusinessLogic
 {
+
     public class Menu
-    {
-        protected string? description { get; set; }
-
-
+    {  
+        // TODO: implement methods that generate id and idex
+        public string? description { get;  set; }
+        protected string _id { get; } 
+        protected string index { get; set; } //set public ?
     }
 }

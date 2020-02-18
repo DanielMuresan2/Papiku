@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using Papiku.Core.DataManipulation.Listing;
 using static Papiku.Helpers.PrinterWizard.SimplePrinter;
-using static Papiku.Helpers.IOValidator.InputValidator;
+using static Papiku.Helpers.IO.InputValidator;
 
 
 namespace Papiku.Core.DataManipulation
 {
-    static class ModifyMealsSection
+    static class ModifyMealsSection //keep it static or use singleton?
     {
         private static int option;
         private static IDataManipulationService listerService;
@@ -39,7 +39,7 @@ namespace Papiku.Core.DataManipulation
         {
             switch (option)
             {
-                case 1: ; break;
+                case 1: listerService.Execute();break;
                 case 2:  break;
                 case 3: break;
                 case 4: break;

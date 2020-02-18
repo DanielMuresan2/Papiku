@@ -4,7 +4,7 @@ using System.Text;
 using static System.Console;
 using static Papiku.Helpers.PrinterWizard.SimplePrinter;
 
-namespace Papiku.Helpers.IOValidator
+namespace Papiku.Helpers.IO
 {
     static class InputValidator
     {

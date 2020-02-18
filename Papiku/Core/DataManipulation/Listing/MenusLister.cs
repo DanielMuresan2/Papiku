@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using static System.Console;
-using static Papiku.Helpers.IOValidator.InputValidator;
+using static Papiku.Helpers.IO.InputValidator;
 
 namespace Papiku.Core.DataManipulation.Listing
 {
@@ -12,12 +12,22 @@ namespace Papiku.Core.DataManipulation.Listing
         private ILister currentMenusLister;
         private ILister dailyMenusLister;
         private ILister weeklyMenusLister;
+        //evident, pentur ca un lister stie ce optiune este in meniu, aici nu pot exista listere cu aceeasi optiune
+        IList<ILister> menuListers = new List<ILister>();
         public static MenusLister Instance { get; } = new MenusLister();
         private MenusLister()
         {
             currentMenusLister = new CurrentMenuLister();
             dailyMenusLister = new DailyMenusLister();
             weeklyMenusLister = new WeeklyMenusLister();
+        }
+        public MenusLister(params ILister[] listers)
+        {
+
+        }
+        public MenusLister(IList<ILister> listers)
+        {
+
         }
          public void Execute()
         {
@@ -35,6 +45,7 @@ namespace Papiku.Core.DataManipulation.Listing
 
         private static void ExecuteOption()
         {
+            //un ILister sa stie el ce optiune este in meniu
             switch(Instance.option)
             {
                case 1: Instance.currentMenusLister.Execute(); break;
