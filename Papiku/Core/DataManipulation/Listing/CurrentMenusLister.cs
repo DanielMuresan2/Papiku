@@ -14,6 +14,8 @@ namespace Papiku.Core.DataManipulation.Listing
              * call data fetch service; once you get it, print it
              * different method for printing format
              * */
+
+            //Aplicatia momentan nu are nevoie de business logic. Se poate face cam totul doar folosing stringuri + JSON objects
             throw new NotImplementedException();
         }
 

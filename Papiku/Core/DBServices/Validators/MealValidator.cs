@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Papiku.BusinessLogic;
 
-namespace Papiku.Helpers.Validator
+namespace Papiku.Core.DBServices.Validators
 {
     static class MealValidator
     {

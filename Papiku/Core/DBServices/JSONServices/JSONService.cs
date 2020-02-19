@@ -25,7 +25,8 @@ namespace Papiku.Core.DBServices.JSONServices
              * [OnSerializing], [OnSerialized] => annotations for serialize callbacks
              * JObject.FromObject( .NET Type object) => converts from any object straight into JSON object
              * LINQ => SQL keywords for iteration through the JSON properties and more
-             * parse => still a converter,but i'm not allowed to use it
+             * parse => JSON format string to JSON object
+             * how to convert from JSON to object? JSON -> string -> object? Parse?
              * 
              * using Papiku.Properties;
              * using static Papiku.Properties.Resources;
@@ -34,8 +35,6 @@ namespace Papiku.Core.DBServices.JSONServices
 
             ResourceManager rm = new ResourceManager(typeof(Resources));
 
-
-            string key = rm.GetString(String1);
             Menu m = new Menu();
             m.description = "asdasd";
             JObject o = JObject.FromObject(m);

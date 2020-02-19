@@ -4,7 +4,7 @@ using System.Text;
 using static System.Console;
 using Papiku.BusinessLogic;
 
-namespace Papiku.Helpers.Validator
+namespace Papiku.Core.DBServices.Validators
 {
     static class CurrentMenuValidator
     {
