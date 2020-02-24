@@ -1,10 +1,17 @@
 ﻿[
   {
-    "Name": "Supa de pui",
-    "Quantity" :  "350 g"
+    "Name": "Supa de pui cu taitei",
+    "Calories" :  "200",
+    "Quantity" :  "350"
   },
   {
     "Name": "Cartofi piure si tocanita de purcel",
-    "Quantity": "200 g"
+    "Calories": "600",
+    "Quantity": "200"
+  },
+  {
+    "Name": "Eclere",
+    "Calories": "600",
+    "Quantity": "75"
   }
 ]

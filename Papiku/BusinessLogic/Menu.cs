@@ -9,7 +9,18 @@ namespace Papiku.BusinessLogic
     {  
         // TODO: implement methods that generate id and idex
         public string? description { get;  set; }
-        protected string _id { get; } 
-        protected string index { get; set; } //set public ?
+        protected uint index { get; set; } //set is public ?
+
+        public Menu( uint _index)
+        {
+        
+            index = _index;
+        }
+        public Menu(uint _index, string? _description)
+        {
+           
+            index = _index;
+            description = _description;
+        }
     }
 }

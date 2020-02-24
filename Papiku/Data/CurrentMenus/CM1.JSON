@@ -1,18 +1,5 @@
-﻿[
-  {
-    "_id": "5e4a8daa1717553d65af69c4",
-    "index": 0,
-    "name": {
-      "first": "Marla",
-      "last": "Soto"
-    }
-  },
-  {
-    "_id": "5e4a8daab72a6c52fe746a21",
-    "index": 1,
-    "name": {
-      "first": "Gates",
-      "last": "Hart"
-    }
-  }
-]
+﻿{
+  "index":  "1",
+  "Main dish": "Supa de pui cu taitei",
+  "Second dish": "Cartofi piure si tocanita de purcel"
+}

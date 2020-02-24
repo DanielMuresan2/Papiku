@@ -4,6 +4,6 @@ namespace Papiku.Core.DataManipulation.Listing
 {
     public interface ILister : IDataManipulationService
     {
-        void FormatAndPrintMenu();
+        void FormatAndPrintMenu(Menu res);
     }
 }

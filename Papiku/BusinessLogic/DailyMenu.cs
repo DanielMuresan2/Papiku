@@ -7,6 +7,16 @@ namespace Papiku.BusinessLogic
 {
     class DailyMenu : Menu
     {
-        public CurrentMenu[] currentMenus { get; } = new CurrentMenu[MENUSINADAY] { new CurrentMenu(null), new CurrentMenu(null), new CurrentMenu(null) };
+        public List<CurrentMenu> currentMenus { get; }
+        public DailyMenu(uint index, List<CurrentMenu> cm)
+            : base(index)
+        {
+            currentMenus = cm;
+        }
+        public DailyMenu(string id, uint index,string description, List<CurrentMenu> cm)
+            : base(index, description)
+        {
+            currentMenus = cm;
+        }
     }
 }

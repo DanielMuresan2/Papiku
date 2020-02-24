@@ -61,6 +61,15 @@ namespace Papiku.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ..\..\..\Data\CurrentMenus\CM1.json.
+        /// </summary>
+        public static string CM1_json {
+            get {
+                return ResourceManager.GetString("CM1_json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to description.
         /// </summary>
         public static string DESCRIPTION {

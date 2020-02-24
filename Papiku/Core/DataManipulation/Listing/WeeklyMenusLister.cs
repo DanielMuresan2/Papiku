@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Papiku.BusinessLogic;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,8 +11,7 @@ namespace Papiku.Core.DataManipulation.Listing
         {
             throw new NotImplementedException();
         }
-
-        public void FormatAndPrintMenu()
+        public void FormatAndPrintMenu(Menu res)
         {
             throw new NotImplementedException();
         }

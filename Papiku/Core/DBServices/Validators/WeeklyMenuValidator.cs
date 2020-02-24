@@ -12,10 +12,10 @@ namespace Papiku.Core.DBServices.Validators
     {
         public static bool IsOk(this WeeklyMenu menu)
         {
-            foreach (DailyMenu d in menu.DailyMenus)
+            /*foreach (DailyMenu d in menu.DailyMenus)
                 if (!d.IsOk())
                     return false;
-            WriteLine("WeeklyMenuValidator");
+            WriteLine("WeeklyMenuValidator");*/
             return true;
         }
     }

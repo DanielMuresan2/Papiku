@@ -6,10 +6,25 @@ namespace Papiku.BusinessLogic
 {
     class CurrentMenu : Menu
     {
-        private List<Food> food = new List<Food>();
-        public CurrentMenu(List<Food> f)
+        
+        public string MainDish { get; }
+        public string SecondDish { get; }
+        public string Dessert { get; }
+
+        public CurrentMenu(string main, string second, string _dessert, uint index )
+            :base ( index)
         {
-            food = f;
+            MainDish = main;
+            SecondDish = second;
+            Dessert = _dessert;
+        }
+        public CurrentMenu(string main, string second, string _dessert, uint index, string _description)
+            : base( index, _description)
+        {
+            MainDish = main;
+            SecondDish = second;
+            Dessert = _dessert;
+            description = _description;
         }
     }
 }

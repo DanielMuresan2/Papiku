@@ -2,26 +2,29 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Papiku.Core.DBServices;
+using Papiku.Core.DBServices.JSONServices;
+using static Papiku.Properties.Resources;
 
 namespace Papiku.Core.DataManipulation.Listing
 {
     class CurrentMenuLister : ILister
     {
-        //voi sti care serviciu specializat imi va onora cerea? Nu ar trebui..
+        private IDataFetching MenusFetcher;
+        public CurrentMenuLister()
+        {
+            MenusFetcher = new CurrentMenuFetcher(CM1_json); //TODO: hardcoded; replace with path+"CM"+index+".json"
+        }
+        
         public void Execute()
         {
-            /***
-             * call data fetch service; once you get it, print it
-             * different method for printing format
-             * */
-
-            //Aplicatia momentan nu are nevoie de business logic. Se poate face cam totul doar folosing stringuri + JSON objects
-            throw new NotImplementedException();
+            Menu fetch_res = MenusFetcher.Fetch();
+            FormatAndPrintMenu(fetch_res);
         }
 
-       public void FormatAndPrintMenu()
+       public void FormatAndPrintMenu(Menu res)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("CurrentMenuLister sadasda");
         }
     }
 }

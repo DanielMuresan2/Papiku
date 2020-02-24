@@ -7,15 +7,16 @@ namespace Papiku.BusinessLogic
 {
     class WeeklyMenu : Menu
     {
-
-        public DailyMenu[] DailyMenus { get; set; } = new DailyMenu[DAILYMENUSINAWEEK]{
-        new DailyMenu(),
-        new DailyMenu(),
-        new DailyMenu(),
-        new DailyMenu(),
-        new DailyMenu(),
-        new DailyMenu(),
-        new DailyMenu()};
-
+        public List<DailyMenu> dailyMenus { get; set; }
+        public WeeklyMenu( uint index, List<DailyMenu> dm)
+            : base( index)
+        {
+            dailyMenus = dm;
+        }
+        public WeeklyMenu(uint index,string description, List<DailyMenu> dm)
+            : base( index, description)
+        {
+            dailyMenus = dm;
+        }
     }
 }

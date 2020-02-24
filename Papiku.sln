@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Papiku", "Papiku\Papiku.csproj", "{2CE86901-2C8B-47B3-80CC-EFC96079826E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Papiku", "Papiku\Papiku.csproj", "{2CE86901-2C8B-47B3-80CC-EFC96079826E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Papiku.Test2", "Papiku.Test2\Papiku.Test2.csproj", "{A3AE08CA-FBD1-4618-BE88-39EBF9A24D74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2CE86901-2C8B-47B3-80CC-EFC96079826E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CE86901-2C8B-47B3-80CC-EFC96079826E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CE86901-2C8B-47B3-80CC-EFC96079826E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3AE08CA-FBD1-4618-BE88-39EBF9A24D74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3AE08CA-FBD1-4618-BE88-39EBF9A24D74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3AE08CA-FBD1-4618-BE88-39EBF9A24D74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3AE08CA-FBD1-4618-BE88-39EBF9A24D74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

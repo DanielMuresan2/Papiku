@@ -5,3 +5,4 @@
 - MenusLister will have its own internal stoarge or share the storage with other DM components?
 - Consider Command pattern for Data Manipulation operations
 - extract readfromkeyboard methods
+- business logic doesn't make up itself aka don't put "getDataFromJson" type of methods inside BL

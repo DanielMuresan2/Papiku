@@ -16,8 +16,8 @@ namespace Papiku
              Menu m = new Menu();
              WriteLine(m.IsOk());
              */
-            JSONService.test();
-           //Start();
+            //JSONService.test();
+           Start();
 
         }
     }
