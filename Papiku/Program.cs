@@ -1,8 +1,8 @@
 ﻿using static System.Console;
 using Papiku.Core.DBServices.JSONServices;
 using static Papiku.Core.PapikuEntryPoint;
-
-
+using Microsoft.Extensions.Logging;
+using System.Diagnostics;
 
 namespace Papiku
 {
@@ -17,7 +17,26 @@ namespace Papiku
              WriteLine(m.IsOk());
              */
             //JSONService.test();
-           Start();
+
+            var loggerFactory = LoggerFactory.Create(builder =>
+            {
+                builder
+                    .AddFilter("Microsoft", LogLevel.Warning)
+                    .AddFilter("System", LogLevel.Warning)
+                    .AddFilter("LoggingConsoleApp.Program", LogLevel.Debug)
+                    .AddConsole()
+                    .AddEventLog();
+            });
+            ILogger logger = loggerFactory.CreateLogger<Program>();
+
+
+
+
+
+            logger.LogInformation("Example log message");
+            logger.LogWarning("I am a warning!");
+
+            //Start();
 
         }
     }

@@ -37,13 +37,12 @@ namespace Papiku.BusinessLogic
 
         public static explicit operator CurrentMenu(JToken j)
         {
-
-            var index = j.Value<uint>(INDEX);
+            var index = j.Value<uint>(INDEX); 
             var md = j.Value<string>(MAIN_DISH);
             var sd = j.Value<string>(SECOND_DISH);
             var dess = j.Value<string>(DESSERT);
             var des = j.Value<string>(DESCRIPTION);
-            CurrentMenu res = new CurrentMenu(index, md, sd, dess);
+            CurrentMenu res = new CurrentMenu(index, md, sd, dess); 
             return res;
         }
     }

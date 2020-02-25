@@ -11,6 +11,7 @@ namespace Papiku.Helpers.IO
         public static int ReadIntegerAndValidate()
         {
             int option;
+            PrintYourOptionText();
             while (!Int32.TryParse(ReadLine(), out option))
                 {
                     PrintInvalidInput();

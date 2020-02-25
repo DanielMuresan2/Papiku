@@ -1,5 +1,9 @@
 ﻿using Newtonsoft.Json.Linq;
 using Papiku.BusinessLogic;
+using Papiku.Core.DBServices.Validators;
+using System;
+using Papiku.Core.DBServices.Exceptions;
+using Newtonsoft.Json;
 
 namespace Papiku.Core.DBServices.JSONServices
 {
@@ -10,11 +14,24 @@ namespace Papiku.Core.DBServices.JSONServices
         {
             jsonPath = _jsonPath;
         }
-        public Menu Fetch()
+        public Menu Fetch() 
         {
-            JObject jObject= jsonPath.Convert();
-            Menu res = jObject.ToObject<CurrentMenu>();
-            return res;
+            Menu res = null;
+            JObject jObject = jsonPath.Convert();
+            if (jObject == null)
+                return null;
+
+            try {
+                res = jObject.ToObject<CurrentMenu>();
+                if (!MealValidator.IsOk(res))
+                    throw new IncompleteDataException("Fetched incomplete CurrentMenu."); 
+            }
+            catch (JsonSerializationException e)
+            {
+                Console.WriteLine("Fetched invalid CurrentMenu data." + e.Message); 
+            }
+
+            return res; 
         }
     }
 }

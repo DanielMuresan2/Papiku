@@ -106,7 +106,7 @@ namespace Papiku.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to d.
+        ///   Looks up a localized string similar to Second_dish.
         /// </summary>
         public static string SECOND_DISH {
             get {

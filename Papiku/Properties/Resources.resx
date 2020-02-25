@@ -133,6 +133,6 @@
     <value>Main_dish</value>
   </data>
   <data name="SECOND_DISH" xml:space="preserve">
-    <value>d</value>
+    <value>Second_dish</value>
   </data>
 </root>

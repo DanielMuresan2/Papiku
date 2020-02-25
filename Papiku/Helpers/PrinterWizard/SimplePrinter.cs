@@ -42,7 +42,7 @@ namespace Papiku.Helpers.PrinterWizard
             WriteLine("Please choose an option from below:\n");
         }
 
-        private static void PrintYourOptionText()
+        public static void PrintYourOptionText()
         {
             WriteLine("\nYou option is: ");
         }

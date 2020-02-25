@@ -10,7 +10,6 @@ namespace Papiku.Core.DBServices.Validators
     {
         public static bool IsOk(this CurrentMenu menu)
         {
-                WriteLine($"CurrentMenuValidator");
             return true;
         }
     }

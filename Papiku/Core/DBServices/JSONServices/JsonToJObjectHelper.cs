@@ -12,16 +12,31 @@ namespace Papiku.Core.DBServices.JSONServices
     {
         public static JObject Convert(this string jsonPath)
         {
-            //TODO: exception handling
-            using (StreamReader jsonFile = File.OpenText(jsonPath)) 
-
-            using (JsonTextReader reader = new JsonTextReader(jsonFile))
+            JObject o = null;
+            try
             {
-                JToken o = JToken.ReadFrom(reader);
-                CurrentMenu cm = (CurrentMenu)o;
-               Console.WriteLine(cm.SecondDish);
-                return null;
+                using (StreamReader jsonFile = File.OpenText(jsonPath)) //FileNotFound
+                {
+                    using (JsonTextReader reader = new JsonTextReader(jsonFile)) //JsonReaderException
+                    {
+                         o = (JObject)JToken.ReadFrom(reader);
+                    }
+                }
+            } 
+            catch (FileNotFoundException e)
+            {
+                Console.WriteLine( e.Message);
             }
+            catch (JsonReaderException e)
+            {
+                Console.WriteLine( e.Message + " " + e.InnerException);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Uncommon exception! " + e.Message);
+            }
+            return o;  
+            
         }
     }
 }

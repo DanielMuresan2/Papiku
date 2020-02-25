@@ -16,7 +16,7 @@ namespace Papiku.Core.DataManipulation.Listing
         {
             MenusFetcher = new CurrentMenuFetcher(CM1_json);
             //TODO: hardcoded; replace with path+"CM"+index+".json"
-            //TODO: who choses the path aka json file?
+            //who choses the path aka json file? ChooseOption() along with other methods, eventually
         }
 
         public int option => CurrentMenuListerOption;
@@ -28,8 +28,12 @@ namespace Papiku.Core.DataManipulation.Listing
 
         public void Execute()
         {
+            
             Menu fetch_res = MenusFetcher.Fetch();
-            FormatAndPrintMenu(fetch_res);
+            if (fetch_res != null)
+                FormatAndPrintMenu(fetch_res);
+            else
+                Console.WriteLine("Fetched null. Retry?"); //TODO: retry policy
         }
 
        public void FormatAndPrintMenu(Menu res)

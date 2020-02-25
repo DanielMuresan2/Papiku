@@ -8,7 +8,7 @@ using static Papiku.Helpers.IO.InputValidator;
 
 namespace Papiku.Core.DataManipulation
 {
-    static class ModifyMealsSection //keep it static or use singleton?
+    static class ModifyMealsSection 
     {
         private static int option;
         private static IDataManipulationService listerService;
