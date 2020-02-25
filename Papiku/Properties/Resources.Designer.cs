@@ -79,11 +79,38 @@ namespace Papiku.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to adasdasd.
+        ///   Looks up a localized string similar to Dessert.
         /// </summary>
-        public static string String1 {
+        public static string DESSERT {
             get {
-                return ResourceManager.GetString("String1", resourceCulture);
+                return ResourceManager.GetString("DESSERT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to index.
+        /// </summary>
+        public static string INDEX {
+            get {
+                return ResourceManager.GetString("INDEX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Main_dish.
+        /// </summary>
+        public static string MAIN_DISH {
+            get {
+                return ResourceManager.GetString("MAIN_DISH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to d.
+        /// </summary>
+        public static string SECOND_DISH {
+            get {
+                return ResourceManager.GetString("SECOND_DISH", resourceCulture);
             }
         }
     }

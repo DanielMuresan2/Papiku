@@ -123,7 +123,16 @@
   <data name="DESCRIPTION" xml:space="preserve">
     <value>description</value>
   </data>
-  <data name="String1" xml:space="preserve">
-    <value>adasdasd</value>
+  <data name="DESSERT" xml:space="preserve">
+    <value>Dessert</value>
+  </data>
+  <data name="INDEX" xml:space="preserve">
+    <value>index</value>
+  </data>
+  <data name="MAIN_DISH" xml:space="preserve">
+    <value>Main_dish</value>
+  </data>
+  <data name="SECOND_DISH" xml:space="preserve">
+    <value>d</value>
   </data>
 </root>

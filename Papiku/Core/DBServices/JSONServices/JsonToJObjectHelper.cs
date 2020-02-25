@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Papiku.BusinessLogic;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,11 +12,15 @@ namespace Papiku.Core.DBServices.JSONServices
     {
         public static JObject Convert(this string jsonPath)
         {
-            using(StreamReader jsonFile = File.OpenText(jsonPath))
+            //TODO: exception handling
+            using (StreamReader jsonFile = File.OpenText(jsonPath)) 
+
             using (JsonTextReader reader = new JsonTextReader(jsonFile))
             {
-                JObject o = (JObject)JToken.ReadFrom(reader);
-                return o;
+                JToken o = JToken.ReadFrom(reader);
+                CurrentMenu cm = (CurrentMenu)o;
+               Console.WriteLine(cm.SecondDish);
+                return null;
             }
         }
     }
