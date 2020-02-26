@@ -13,13 +13,12 @@ namespace Papiku.Core.DataManipulation.Listing
         private int option;
         public IList<ILister> menuListers { get; } = new List<ILister>();
         public static MenusLister Instance { get; } = new MenusLister();
-        int IDataManipulationService.option => throw new NotImplementedException();
+        int IDataManipulationService.option => 1;
         private MenusLister()
         {
-            menuListers.Add(new WeeklyMenusLister());
-            menuListers.Add(new CurrentMenuLister());
-            menuListers.Add(new DailyMenusLister());
-            SortListers();
+            AddLister(new WeeklyMenusLister());
+            AddLister(new CurrentMenuLister());
+            AddLister(new DailyMenusLister());
         }
         public void AddLister(ILister lister)
         {
@@ -34,9 +33,11 @@ namespace Papiku.Core.DataManipulation.Listing
         public void RemoveLister(ILister lister)
         {
             if (menuListers.Contains(lister))
+            {
                 menuListers.Remove(lister);
+                SortListers();
+            }
         }
-
         public void Execute()
         {
             PrintListerMenu();
@@ -44,16 +45,15 @@ namespace Papiku.Core.DataManipulation.Listing
         }
         private void ReadFromKeyboardAndExecute()
         {
-            while (Instance.option != 9)
+            while (option != 9)
             {
-                Instance.option = ReadIntegerAndValidate();
+                option = ReadIntegerAndValidate(option);
                 ExecuteOption();
             }
         }
-
         private  void ExecuteOption()
         {
-            menuListers[option-1].Execute();
+            menuListers[option-1].Execute(); //orice lister stie ce optiune este in meniu
         }
         private static void PrintListerMenu()
         {
@@ -63,7 +63,6 @@ namespace Papiku.Core.DataManipulation.Listing
             WriteLine("3. List the meals for a particular week\n");
             WriteLine("You option is: ");
         }
-
         private void SortListers()
         {
             ((List<ILister>)menuListers).Sort(delegate (ILister x, ILister y)
@@ -73,7 +72,6 @@ namespace Papiku.Core.DataManipulation.Listing
                 else return -1;
             });
         }
-
         public void ChooseOption()
         {
             ReadFromKeyboardAndExecute();

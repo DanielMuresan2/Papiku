@@ -8,9 +8,8 @@ namespace Papiku.Helpers.IO
 {
     static class InputValidator
     {
-        public static int ReadIntegerAndValidate()
+        public static int ReadIntegerAndValidate(int option)
         {
-            int option;
             PrintYourOptionText();
             while (!Int32.TryParse(ReadLine(), out option))
                 {

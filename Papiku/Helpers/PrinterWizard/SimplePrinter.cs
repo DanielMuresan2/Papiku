@@ -30,7 +30,6 @@ namespace Papiku.Helpers.PrinterWizard
             WriteLine("1. Modify the meals (add,edit,delete,show)");
             WriteLine("2. Get Recommended meals");
             WriteLine("9. Exit Papiku\n");
-            PrintYourOptionText();
         }
 
         public static void PrintInvalidInput()

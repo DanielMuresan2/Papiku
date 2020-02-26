@@ -1,6 +1,6 @@
 ﻿using static System.Console;
 using Papiku.Core.DBServices.JSONServices;
-using static Papiku.Core.PapikuEntryPoint;
+using Papiku.Core;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
@@ -33,10 +33,10 @@ namespace Papiku
 
 
 
-            logger.LogInformation("Example log message");
-            logger.LogWarning("I am a warning!");
+            //  logger.LogInformation("Example log message");
+            //  logger.LogWarning("I am a warning!");
 
-            //Start();
+            PapikuEntryPoint.Instance.Start();
 
         }
     }

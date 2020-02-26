@@ -8,30 +8,31 @@ using static Papiku.Helpers.PrinterWizard.SimplePrinter;
 
 namespace Papiku.Core
 {
-     static class PapikuEntryPoint
+     class PapikuEntryPoint
     {
-        static private int option;
-        static PapikuEntryPoint() => option = 0;
-        public static void Start()
+        public static PapikuEntryPoint Instance { get; } = new PapikuEntryPoint(); 
+        private int option;
+        private PapikuEntryPoint(){}
+        public void Start()
         {
             PrintWelcomeMessage();
             PrintMainMenu();
             ReadFromKeyboardAndExecute();
         }
-        private static void ReadFromKeyboardAndExecute()
+        private void ReadFromKeyboardAndExecute()
         {
             while (option != 9)
             {
-                option = ReadIntegerAndValidate();
+                option = ReadIntegerAndValidate(option);
                 ExecuteOption();
             }
         }
-        private static void ExecuteOption()
+        private void ExecuteOption()
         {
             switch (option)
             {
                 case 1:
-                    ModifyMealsSection.Begin();    
+                    ModifyMealsSection.Instance.Begin();    
                     break;
                 case 2: 
                    // RecommendedMeals.Insance.Begin();
