@@ -1,25 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using static System.Console;
+﻿using System.Collections.Generic;
 using static Papiku.Helpers.IO.InputValidator;
-using Papiku.Core.DBServices;
-using System.Linq;
+using static System.Console;
 
 namespace Papiku.Core.DataManipulation.Listing
 {
-    class MenusLister : IDataManipulationService
+    internal class MenusLister : IDataManipulationService
     {
         private int option;
         public IList<ILister> menuListers { get; } = new List<ILister>();
         public static MenusLister Instance { get; } = new MenusLister();
         int IDataManipulationService.option => 1;
+
         private MenusLister()
         {
             AddLister(new WeeklyMenusLister());
             AddLister(new CurrentMenuLister());
             AddLister(new DailyMenusLister());
         }
+
         public void AddLister(ILister lister)
         {
             if (!menuListers.Contains(lister))
@@ -27,9 +25,9 @@ namespace Papiku.Core.DataManipulation.Listing
                 menuListers.Add(lister);
                 SortListers();
             }
-                
             else WriteLine("Lister already present");
         }
+
         public void RemoveLister(ILister lister)
         {
             if (menuListers.Contains(lister))
@@ -38,11 +36,13 @@ namespace Papiku.Core.DataManipulation.Listing
                 SortListers();
             }
         }
+
         public void Execute()
         {
             PrintListerMenu();
             ChooseOption();
         }
+
         private void ReadFromKeyboardAndExecute()
         {
             while (option != 9)
@@ -51,10 +51,12 @@ namespace Papiku.Core.DataManipulation.Listing
                 ExecuteOption();
             }
         }
-        private  void ExecuteOption()
+
+        private void ExecuteOption()
         {
-            menuListers[option-1].Execute(); //orice lister stie ce optiune este in meniu
+            menuListers[option - 1].Execute(); //orice lister stie ce optiune este in meniu
         }
+
         private static void PrintListerMenu()
         {
             WriteLine("Please choose an option from below:\n");
@@ -63,6 +65,7 @@ namespace Papiku.Core.DataManipulation.Listing
             WriteLine("3. List the meals for a particular week\n");
             WriteLine("You option is: ");
         }
+
         private void SortListers()
         {
             ((List<ILister>)menuListers).Sort(delegate (ILister x, ILister y)
@@ -72,6 +75,7 @@ namespace Papiku.Core.DataManipulation.Listing
                 else return -1;
             });
         }
+
         public void ChooseOption()
         {
             ReadFromKeyboardAndExecute();
@@ -83,11 +87,9 @@ namespace Papiku.Core.DataManipulation.Listing
         //evident, pentur ca un lister stie ce optiune este in meniu, aici nu pot exista listere cu aceeasi optiune
         /*public MenusLister(params ILister[] listers)
         {
-
         }
         public MenusLister(IList<ILister> listers)
         {
-
         }*/
         //un ILister sa stie el ce optiune este in meniu
         /* switch(Instance.option)

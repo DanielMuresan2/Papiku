@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Papiku.Core.DBServices.Exceptions
 {
-    class IncompleteDataException :Exception
+    internal class IncompleteDataException : Exception
     {
         public IncompleteDataException(string message) : base(message)
         {

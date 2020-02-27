@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Papiku.Core.DBServices.Exceptions
 {
-    class InvalidDataException :Exception 
+    internal class InvalidDataException : Exception
     {
         public InvalidDataException(string message) : base(message)
         {

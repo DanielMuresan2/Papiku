@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Papiku.Core.DataManipulation.Editing
+﻿namespace Papiku.Core.DataManipulation.Editing
 {
-    class DailyMenusEditor
+    internal class DailyMenusEditor
     {
     }
 }

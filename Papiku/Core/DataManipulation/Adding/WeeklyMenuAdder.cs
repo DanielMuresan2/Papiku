@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using static Papiku.Helpers.Constants;
 
 namespace Papiku.Core.DataManipulation.Adding
 {
-    class WeeklyMenuAdder : IAdder
+    internal class WeeklyMenuAdder : IAdder
     {
         public int option => WeeklyMenuAdderOption;
 

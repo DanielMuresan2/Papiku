@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Papiku.Core.DataManipulation.Deleting
 {
-    class CurrentMenuRemover : IRemover
+    internal class CurrentMenuRemover : IRemover
     {
         public int option => 1;
 

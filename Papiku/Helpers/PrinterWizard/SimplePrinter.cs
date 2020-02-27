@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using static System.Console;
+﻿using static System.Console;
 
 namespace Papiku.Helpers.PrinterWizard
 {
-     static class SimplePrinter
+    internal static class SimplePrinter
     {
-       
         public static void PrintModifyMenu()
         {
             PrintChooseOptionText();
@@ -24,6 +20,7 @@ namespace Papiku.Helpers.PrinterWizard
             WriteLine("Welcome to Papiku!");
             WriteLine("What are we going to cook for the kids?\n");
         }
+
         public static void PrintMainMenu()
         {
             PrintChooseOptionText();
@@ -36,6 +33,7 @@ namespace Papiku.Helpers.PrinterWizard
         {
             WriteLine("Invalid input, please choose one option from the ones available");
         }
+
         public static void PrintChooseOptionText()
         {
             WriteLine("Please choose an option from below:\n");

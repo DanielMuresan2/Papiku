@@ -1,24 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Papiku.Core.DataManipulation;
+﻿using Papiku.Core.DataManipulation;
 using static Papiku.Helpers.IO.InputValidator;
 using static Papiku.Helpers.PrinterWizard.SimplePrinter;
 
-
 namespace Papiku.Core
 {
-     class PapikuEntryPoint
+    internal class PapikuEntryPoint
     {
-        public static PapikuEntryPoint Instance { get; } = new PapikuEntryPoint(); 
+        public static PapikuEntryPoint Instance { get; } = new PapikuEntryPoint();
         private int option;
-        private PapikuEntryPoint(){}
+
+        private PapikuEntryPoint()
+        {
+        }
+
         public void Start()
         {
             PrintWelcomeMessage();
             PrintMainMenu();
             ReadFromKeyboardAndExecute();
         }
+
         private void ReadFromKeyboardAndExecute()
         {
             while (option != 9)
@@ -27,16 +28,19 @@ namespace Papiku.Core
                 ExecuteOption();
             }
         }
+
         private void ExecuteOption()
         {
             switch (option)
             {
                 case 1:
-                    ModifyMealsSection.Instance.Begin();    
+                    ModifyMealsSection.Instance.Begin();
                     break;
-                case 2: 
-                   // RecommendedMeals.Insance.Begin();
+
+                case 2:
+                    // RecommendedMeals.Insance.Begin();
                     break;
+
                 default: break;
             }
         }

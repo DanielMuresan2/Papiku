@@ -1,16 +1,12 @@
-﻿using static System.Console;
-using Papiku.Core.DBServices.JSONServices;
+﻿using Microsoft.Extensions.Logging;
 using Papiku.Core;
-using Microsoft.Extensions.Logging;
-using System.Diagnostics;
 
 namespace Papiku
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-
             /* WeeklyMenu w = new WeeklyMenu();
              Menu d = new DailyMenu();
              Menu m = new Menu();
@@ -29,15 +25,10 @@ namespace Papiku
             });
             ILogger logger = loggerFactory.CreateLogger<Program>();
 
-
-
-
-
             //  logger.LogInformation("Example log message");
             //  logger.LogWarning("I am a warning!");
 
             PapikuEntryPoint.Instance.Start();
-
         }
     }
 }

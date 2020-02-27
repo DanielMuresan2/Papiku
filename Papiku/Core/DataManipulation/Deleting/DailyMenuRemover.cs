@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Papiku.Core.DataManipulation.Deleting
+﻿namespace Papiku.Core.DataManipulation.Deleting
 {
-    class DailyMenuRemover
+    internal class DailyMenuRemover
     {
     }
 }

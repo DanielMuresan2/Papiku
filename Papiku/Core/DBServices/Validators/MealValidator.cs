@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Papiku.BusinessLogic;
+﻿using Papiku.BusinessLogic;
 
 namespace Papiku.Core.DBServices.Validators
 {
-    static class MealValidator
+    internal static class MealValidator
     {
         public static bool IsOk(this Menu menu)
         {
@@ -16,7 +13,6 @@ namespace Papiku.Core.DBServices.Validators
                 case CurrentMenu c: return c.IsOk();
                 default: return false;
             }
-            
         }
     }
 }

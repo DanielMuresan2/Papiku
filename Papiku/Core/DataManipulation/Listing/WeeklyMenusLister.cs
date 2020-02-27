@@ -1,12 +1,10 @@
 ﻿using Papiku.BusinessLogic;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using static Papiku.Helpers.Constants;
 
 namespace Papiku.Core.DataManipulation.Listing
 {
-    class WeeklyMenusLister : ILister
+    internal class WeeklyMenusLister : ILister
     {
         public int option => WeeklyMenuListerOption;
 
@@ -19,6 +17,7 @@ namespace Papiku.Core.DataManipulation.Listing
         {
             throw new NotImplementedException();
         }
+
         public void FormatAndPrintMenu(Menu res)
         {
             throw new NotImplementedException();

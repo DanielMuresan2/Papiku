@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Papiku.BusinessLogic;
 using static System.Console;
-using Papiku.BusinessLogic;
 
 namespace Papiku.Core.DBServices.Validators
 {
-    static class DailyMenuValidator
+    internal static class DailyMenuValidator
     {
         public static bool IsOk(this DailyMenu menu)
         {
@@ -14,7 +11,6 @@ namespace Papiku.Core.DBServices.Validators
                 //if (!CurrentMenuValidator.IsOk(m))
                 if (!m.IsOk())
                 {
-                        
                     return false;
                 }
             WriteLine($"DailyMenuValidator");

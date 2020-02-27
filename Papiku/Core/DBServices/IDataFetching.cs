@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Papiku.BusinessLogic;
+﻿using Papiku.BusinessLogic;
 
 namespace Papiku.Core.DBServices
 {
-    interface IDataFetching
+    internal interface IDataFetching
     {
         public Menu Fetch();
     }
