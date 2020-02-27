@@ -6,8 +6,9 @@ namespace Papiku.Helpers.IO
 {
     internal static class InputValidator
     {
-        public static int ReadIntegerAndValidate(int option)
+        public static int ReadIntegerAndValidate()
         {
+            int option;
             PrintYourOptionText();
             while (!Int32.TryParse(ReadLine(), out option))
             {

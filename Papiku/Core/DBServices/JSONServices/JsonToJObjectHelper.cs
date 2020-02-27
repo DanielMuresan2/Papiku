@@ -14,8 +14,10 @@ namespace Papiku.Core.DBServices.JSONServices
             {
                 using (StreamReader jsonFile = File.OpenText(jsonPath)) //FileNotFound
                 {
+                    Console.WriteLine("\nOpening " + jsonPath);
                     using (JsonTextReader reader = new JsonTextReader(jsonFile)) //JsonReaderException
                     {
+                        Console.WriteLine("\nReading from" + jsonPath);
                         o = (JObject)JToken.ReadFrom(reader);
                     }
                 }
@@ -28,9 +30,9 @@ namespace Papiku.Core.DBServices.JSONServices
             {
                 Console.WriteLine(e.Message + " " + e.InnerException);
             }
-            catch (Exception e)
+            catch (InvalidCastException e)
             {
-                Console.WriteLine("Uncommon exception! " + e.Message);
+                Console.WriteLine("Warning! JSON file Corrupted: {0}\n", jsonPath);
             }
             return o;
         }

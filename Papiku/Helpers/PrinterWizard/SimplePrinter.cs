@@ -12,7 +12,7 @@ namespace Papiku.Helpers.PrinterWizard
             WriteLine("3. Edit an existing meal");
             WriteLine("4. Delete an existing meal");
             WriteLine("9. Go back\n");
-            PrintYourOptionText();
+            //PrintYourOptionText();
         }
 
         public static void PrintWelcomeMessage()
@@ -34,14 +34,14 @@ namespace Papiku.Helpers.PrinterWizard
             WriteLine("Invalid input, please choose one option from the ones available");
         }
 
-        public static void PrintChooseOptionText()
+        private static void PrintChooseOptionText()
         {
             WriteLine("Please choose an option from below:\n");
         }
 
         public static void PrintYourOptionText()
         {
-            WriteLine("\nYou option is: ");
+            WriteLine("\nYour option is: ");
         }
     }
 }

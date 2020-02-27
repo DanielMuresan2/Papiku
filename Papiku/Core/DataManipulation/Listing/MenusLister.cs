@@ -39,31 +39,25 @@ namespace Papiku.Core.DataManipulation.Listing
 
         public void Execute()
         {
-            PrintListerMenu();
-            ChooseOption();
+            ReadFromKeyboardAndExecute();
         }
 
         private void ReadFromKeyboardAndExecute()
         {
             while (option != 9)
             {
-                option = ReadIntegerAndValidate(option);
-                ExecuteOption();
+                PrintListerMenu();
+                option = ReadIntegerAndValidate();
+                menuListers[option - 1].Execute(); //orice lister stie ce optiune este in meniu
             }
-        }
-
-        private void ExecuteOption()
-        {
-            menuListers[option - 1].Execute(); //orice lister stie ce optiune este in meniu
         }
 
         private static void PrintListerMenu()
         {
-            WriteLine("Please choose an option from below:\n");
+            WriteLine("\n\nPlease choose an option from below:\n");
             WriteLine("1. List a particular meal");
             WriteLine("2. List the meals for a particular day");
             WriteLine("3. List the meals for a particular week\n");
-            WriteLine("You option is: ");
         }
 
         private void SortListers()
@@ -74,11 +68,6 @@ namespace Papiku.Core.DataManipulation.Listing
                     return 1;
                 else return -1;
             });
-        }
-
-        public void ChooseOption()
-        {
-            ReadFromKeyboardAndExecute();
         }
 
         //private ILister currentMenusLister;

@@ -61,15 +61,6 @@ namespace Papiku.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ..\..\..\Data\CurrentMenus\CM1.json.
-        /// </summary>
-        public static string CM1_json {
-            get {
-                return ResourceManager.GetString("CM1_json", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to description.
         /// </summary>
         public static string DESCRIPTION {
@@ -93,6 +84,24 @@ namespace Papiku.Properties {
         public static string INDEX {
             get {
                 return ResourceManager.GetString("INDEX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ..\..\..\Data\JSON\CurrentMenus\.
+        /// </summary>
+        public static string JSON_CurrentMenus {
+            get {
+                return ResourceManager.GetString("JSON_CurrentMenus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ..\..\..\Data\JSON\.
+        /// </summary>
+        public static string JSON_Files {
+            get {
+                return ResourceManager.GetString("JSON_Files", resourceCulture);
             }
         }
         

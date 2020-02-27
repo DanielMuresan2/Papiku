@@ -7,11 +7,11 @@ using System;
 
 namespace Papiku.Core.DBServices.JSONServices
 {
-    internal class CurrentMenuFetcher : IDataFetching
+    internal class JsonCurrentMenuFetcher : IDataFetching
     {
         private string jsonPath;
 
-        public CurrentMenuFetcher(string _jsonPath)
+        public JsonCurrentMenuFetcher(string _jsonPath)
         {
             jsonPath = _jsonPath;
         }
@@ -27,7 +27,7 @@ namespace Papiku.Core.DBServices.JSONServices
             {
                 res = jObject.ToObject<CurrentMenu>();
                 if (!MealValidator.IsOk(res))
-                    throw new IncompleteDataException("Fetched incomplete CurrentMenu.");
+                    throw new IncompleteDataException("Fetched incomplete CurrentMenu."); //TODO: very ugly case scenario. What to do?
             }
             catch (JsonSerializationException e)
             {

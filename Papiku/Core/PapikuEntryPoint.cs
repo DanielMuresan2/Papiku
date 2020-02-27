@@ -16,7 +16,6 @@ namespace Papiku.Core
         public void Start()
         {
             PrintWelcomeMessage();
-            PrintMainMenu();
             ReadFromKeyboardAndExecute();
         }
 
@@ -24,7 +23,8 @@ namespace Papiku.Core
         {
             while (option != 9)
             {
-                option = ReadIntegerAndValidate(option);
+                PrintMainMenu();
+                option = ReadIntegerAndValidate();
                 ExecuteOption();
             }
         }

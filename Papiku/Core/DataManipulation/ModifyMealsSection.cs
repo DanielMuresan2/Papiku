@@ -31,6 +31,7 @@ namespace Papiku.Core.DataManipulation
                 services.Remove(service);
                 SortServices();
             }
+            SortServices();
         }
 
         private void SortServices()
@@ -46,7 +47,6 @@ namespace Papiku.Core.DataManipulation
         public void Begin()
         {
             Init();
-            PrintModifyMenu();
             ReadFromKeyboardAndExecute();
         }
 
@@ -59,7 +59,8 @@ namespace Papiku.Core.DataManipulation
         {
             while (option != 9)
             {
-                option = ReadIntegerAndValidate(option);
+                PrintModifyMenu();
+                option = ReadIntegerAndValidate();
                 Execute();
             }
         }

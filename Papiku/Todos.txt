@@ -7,3 +7,32 @@
 - extract readfromkeyboard methods NOT DONE
 - business logic doesn't make up itself aka don't put "getDataFromJson" type of methods inside BL DONE
 - icomparable for ILister? DONE (didn't need to do it :D)
+- Print absolut path, program with relative path
+
+
+ * [OnSerializing], [OnSerialized] => annotations for serialize callbacks
+
+             * LINQ => SQL keywords for iteration through the JSON properties and more
+             * parse => JSON format string to JSON object
+             *
+             * using Papiku.Properties;
+             * using static Papiku.Properties.Resources;
+             * ResourceManager rm = new ResourceManager(typeof(Resx_File_Name)); => String resources just like in Kotlin
+             */
+            /*
+
+            ResourceManager rm = new ResourceManager(typeof(Resources));
+
+                    Menu m = new Menu();
+                    m.description = "asdasd";
+                    JObject o = JObject.FromObject(m);
+
+                     WriteLine(o[DESCRIPTION]);
+              */
+
+            // IDataFetching test = new CurrentMenuFetcher(CM1_json);
+            /* Menu[] bla = test.Fetch();
+             foreach(Menu x in bla)
+             {
+                 WriteLine(x.description);
+             }

@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CM1_json" xml:space="preserve">
-    <value>..\..\..\Data\CurrentMenus\CM1.json</value>
-  </data>
   <data name="DESCRIPTION" xml:space="preserve">
     <value>description</value>
   </data>
@@ -128,6 +125,12 @@
   </data>
   <data name="INDEX" xml:space="preserve">
     <value>index</value>
+  </data>
+  <data name="JSON_CurrentMenus" xml:space="preserve">
+    <value>..\..\..\Data\JSON\CurrentMenus\</value>
+  </data>
+  <data name="JSON_Files" xml:space="preserve">
+    <value>..\..\..\Data\JSON\</value>
   </data>
   <data name="MAIN_DISH" xml:space="preserve">
     <value>Main_dish</value>
