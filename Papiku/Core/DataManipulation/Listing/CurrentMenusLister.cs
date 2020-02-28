@@ -40,7 +40,7 @@ namespace Papiku.Core.DataManipulation.Listing
             string Path = JSON_CurrentMenus + "CM" + FileNumber + ".json";
             try
             {
-                MenusFetcher = new JsonCurrentMenuFetcher(Path); //TODO: so many instances...MenuFetcher should take the JsonCurrentMenuFetcher singleton and set the path here
+                MenusFetcher = new MenuFetcher(Path); //TODO: so many instances...MenuFetcher should take the JsonCurrentMenuFetcher singleton and set the path here
                 FetcherReady = true; //variable not mandatory, but it helps the user know what went wrong
                 FetchAndPrintMenu();
             }
@@ -55,7 +55,7 @@ namespace Papiku.Core.DataManipulation.Listing
         {
             Menu fetch_res;
             if (FetcherReady)
-                fetch_res = MenusFetcher.Fetch();
+                fetch_res = MenusFetcher.Fetch<CurrentMenu>();
             else
             {
                 Console.WriteLine("Fetcher not ready. Try again?");

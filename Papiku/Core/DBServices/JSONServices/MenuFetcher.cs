@@ -1,22 +1,24 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Papiku.BusinessLogic;
 using Papiku.Core.DBServices.Exceptions;
 using Papiku.Core.DBServices.Validators;
-using System;
+using Papiku.Helpers.Logger;
 
 namespace Papiku.Core.DBServices.JSONServices
 {
-    internal class JsonCurrentMenuFetcher : IDataFetching
+    internal class MenuFetcher : IDataFetching
     {
         private string jsonPath;
+        private static ILogger logger = LoggerHelper.DefaultLogger<MenuFetcher>();
 
-        public JsonCurrentMenuFetcher(string _jsonPath)
+        public MenuFetcher(string _jsonPath)
         {
             jsonPath = _jsonPath;
         }
 
-        public Menu Fetch()
+        public Menu Fetch<T>() where T : Menu
         {
             Menu res = null;
             JObject jObject = JsonToJObjectHelper.Convert(jsonPath);
@@ -27,11 +29,14 @@ namespace Papiku.Core.DBServices.JSONServices
             {
                 res = jObject.ToObject<CurrentMenu>();
                 if (!MealValidator.IsOk(res))
-                    throw new InvalidDataException("Invalid CurrentMenu found!"); //TODO: very ugly case scenario. What to do?
+                {
+                    logger.LogError("Invalid Current Menu object found in the database!");
+                    throw new InvalidDataException("Invalid Current Menu found!"); //TODO: very ugly case scenario. What to do?
+                }
             }
             catch (JsonSerializationException e)
             {
-                Console.WriteLine("CurrentMenu data has invalid values " + e.Message);
+                logger.LogError("Current Menu data has invalid values " + e.Message);
             }
 
             return res;
