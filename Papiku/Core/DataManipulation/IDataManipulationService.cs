@@ -2,7 +2,7 @@
 {
     public interface IDataManipulationService
     {
-        int option { get; }
+        int option { get; } //option ~= ID
 
         void Execute();
 

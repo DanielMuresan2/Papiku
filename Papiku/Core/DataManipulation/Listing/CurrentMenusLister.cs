@@ -1,6 +1,7 @@
 ﻿using Papiku.BusinessLogic;
 using Papiku.Core.DBServices;
 using Papiku.Core.DBServices.JSONServices;
+using Papiku.Core.DBServices.JSONServices.JSONLister;
 using System;
 using System.IO;
 using static Papiku.Helpers.Constants;
@@ -12,7 +13,6 @@ namespace Papiku.Core.DataManipulation.Listing
     internal class CurrentMenuLister : ILister
     {
         public int option => CurrentMenuListerOption;
-        private IJsonListerService listerService;
 
         public CurrentMenuLister()
         {
@@ -25,19 +25,14 @@ namespace Papiku.Core.DataManipulation.Listing
 
         public void Execute()
         {
-            int option = 0;
-            while (option != -1)
+            IDataBaseService l;
+            if (PapikuEntryPoint.Instance.SelectedService == typeof(JSONServices))
             {
-                PrintChooseService();
-                option = ReadInteger();
+                l = new JsonCurrentMenuLister();
             }
-        }
+            else return;
 
-        private void PrintChooseService()
-        {
-            Console.WriteLine("\nPlease choose where to fetch the menus from:");
-            Console.WriteLine("1. JSON");
-            Console.WriteLine("2. SQL\n");
+            l.Execute();
         }
     }
 }

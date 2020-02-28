@@ -1,15 +1,16 @@
 ﻿using Papiku.Core.DataManipulation;
 using System;
+using System.Collections.Generic;
+using System.Text;
 using static System.Console;
 
 namespace Papiku.Core
 {
-    internal class PapikuEntryPoint : InteractiveComponent
+    internal class JSONServices : InteractiveComponent
     {
-        public static PapikuEntryPoint Instance { get; } = new PapikuEntryPoint();
-        public Type SelectedService { get; set; }
+        public static JSONServices Instance { get; } = new JSONServices();
 
-        private PapikuEntryPoint()
+        private JSONServices()
         {
         }
 
@@ -18,13 +19,11 @@ namespace Papiku.Core
             switch (option)
             {
                 case 1:
-                    SelectedService = typeof(JSONServices);
-                    JSONServices.Instance.Execute();
-
+                    ModifyMealsSection.Instance.Execute();
                     break;
 
                 case 2:
-                    // SQL
+                    // RecommendedMeals.Insance.Begin();
                     break;
 
                 default: break;
@@ -33,9 +32,9 @@ namespace Papiku.Core
 
         protected override void PrintOptions()
         {
-            WriteLine("Please choose the database from the options from below:\n");
-            WriteLine("1. JSON");
-            WriteLine("2. SQL");
+            WriteLine("Please choose an option from below:\n");
+            WriteLine("1. Modify the meals (add,edit,delete,show)");
+            WriteLine("2. Get Recommended meals");
             WriteLine("-1. Exit Papiku\n");
         }
     }

@@ -7,30 +7,25 @@ using static Papiku.Properties.Resources;
 
 namespace Papiku.Core.DBServices.JSONServices.JSONLister
 {
-    internal class JsonCurrentMenuLister
+    internal class JsonCurrentMenuLister : InteractiveComponent, IDataBaseService
     {
         private IDataFetching MenusFetcher; //it is assigned and it's checked for null
         private bool FetcherReady = false;
         private string[] JsonFiles;
-        private int FileNumber = 0;
 
-        public void Execute()
+        protected override void PrintOptions()
         {
-            while (FileNumber != -1)
+            JsonFiles = Directory.GetFiles(JSON_CurrentMenus);
+            Console.WriteLine("JSON Files for Current Menu");
+            foreach (string file in JsonFiles)
             {
-                FetchJsonFileNames();
-                ChooseOption();
+                Console.WriteLine(file);
             }
         }
 
-        public void ChooseOption()
+        protected override void ExecuteOption()
         {
-            if (FileNumber == -1)
-                return;
-
-            Console.WriteLine("Choose a file to read from");
-            FileNumber = ReadInteger();
-            string Path = JSON_CurrentMenus + "CM" + FileNumber + ".json";
+            string Path = JSON_CurrentMenus + "CM" + option + ".json";
             try
             {
                 MenusFetcher = new MenuFetcher(Path); //TODO: so many instances...MenuFetcher should take the JsonCurrentMenuFetcher singleton and set the path here
@@ -42,11 +37,6 @@ namespace Papiku.Core.DBServices.JSONServices.JSONLister
                 FetcherReady = false;
                 Console.WriteLine(e.StackTrace);
             }
-        }
-
-        private int ReadInteger()
-        {
-            throw new NotImplementedException();
         }
 
         private void FetchAndPrintMenu()
@@ -65,25 +55,10 @@ namespace Papiku.Core.DBServices.JSONServices.JSONLister
                 Console.WriteLine("Fetched null. Retry?");
         }
 
-        private void FetchJsonFileNames()
-        {
-            JsonFiles = Directory.GetFiles(JSON_CurrentMenus);
-            PrintJsonFileNames();
-        }
-
         public void FormatAndPrintMenu(Menu res)
         {
             CurrentMenu cm = (CurrentMenu)res;
             Console.WriteLine($"{cm.MainDish} {cm.SecondDish} {cm.index}\n");
-        }
-
-        public void PrintJsonFileNames()
-        {
-            Console.WriteLine("JSON Files for Current Menu");
-            foreach (string file in JsonFiles)
-            {
-                Console.WriteLine(file);
-            }
         }
     }
 }

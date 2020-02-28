@@ -27,7 +27,7 @@ namespace Papiku.Core.DBServices.JSONServices
 
             try
             {
-                res = jObject.ToObject<CurrentMenu>();
+                res = jObject.ToObject<T>();
                 if (!MealValidator.IsOk(res))
                 {
                     logger.LogError("Invalid Current Menu object found in the database!");
