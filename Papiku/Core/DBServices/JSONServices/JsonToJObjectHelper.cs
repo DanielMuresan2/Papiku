@@ -2,13 +2,19 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
+using Microsoft.Extensions.Logging;
+using Papiku.Helpers.Logger;
 
 namespace Papiku.Core.DBServices.JSONServices
 {
-    internal static class JsonToJObjectHelper
+    internal class JsonToJObjectHelper
     {
-        public static JObject Convert(this string jsonPath)
+        private static ILogger logger = LoggerHelper.DefaultLogger<JsonToJObjectHelper>();
+
+        public static JObject Convert(string jsonPath)
         {
+            //no longer extension method because
+            //I couldn't give static class as type to the DefaultLogger method
             JObject o = null;
             try
             {
@@ -24,15 +30,15 @@ namespace Papiku.Core.DBServices.JSONServices
             }
             catch (FileNotFoundException e)
             {
-                Console.WriteLine(e.Message);
+                logger.LogError("Error when opening {0}. File not found!", jsonPath);
             }
             catch (JsonReaderException e)
             {
-                Console.WriteLine(e.Message + " " + e.InnerException);
+                logger.LogError(e.Message + " " + e.InnerException);
             }
             catch (InvalidCastException e)
             {
-                Console.WriteLine("Warning! JSON file Corrupted: {0}\n", jsonPath);
+                logger.LogError("Warning! JSON file Corrupted: {0}\n", jsonPath);
             }
             return o;
         }

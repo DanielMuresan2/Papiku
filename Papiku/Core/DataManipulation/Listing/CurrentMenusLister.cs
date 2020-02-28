@@ -36,7 +36,7 @@ namespace Papiku.Core.DataManipulation.Listing
                 return;
 
             Console.WriteLine("Choose a file to read from");
-            FileNumber = ReadIntegerAndValidate();
+            FileNumber = ReadInteger();
             string Path = JSON_CurrentMenus + "CM" + FileNumber + ".json";
             try
             {

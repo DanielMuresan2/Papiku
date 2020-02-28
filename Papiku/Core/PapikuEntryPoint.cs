@@ -24,7 +24,7 @@ namespace Papiku.Core
             while (option != 9)
             {
                 PrintMainMenu();
-                option = ReadIntegerAndValidate();
+                option = ReadInteger();
                 ExecuteOption();
             }
         }

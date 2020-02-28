@@ -60,8 +60,11 @@ namespace Papiku.Core.DataManipulation
             while (option != 9)
             {
                 PrintModifyMenu();
-                option = ReadIntegerAndValidate();
-                Execute();
+                option = ReadInteger();
+                if (option <= services.Count)
+                    Execute();
+                else
+                    PrintInvalidInput();
             }
         }
 

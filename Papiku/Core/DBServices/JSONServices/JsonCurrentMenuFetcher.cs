@@ -19,7 +19,7 @@ namespace Papiku.Core.DBServices.JSONServices
         public Menu Fetch()
         {
             Menu res = null;
-            JObject jObject = jsonPath.Convert();
+            JObject jObject = JsonToJObjectHelper.Convert(jsonPath);
             if (jObject == null)
                 return null;
 
@@ -27,11 +27,11 @@ namespace Papiku.Core.DBServices.JSONServices
             {
                 res = jObject.ToObject<CurrentMenu>();
                 if (!MealValidator.IsOk(res))
-                    throw new IncompleteDataException("Fetched incomplete CurrentMenu."); //TODO: very ugly case scenario. What to do?
+                    throw new InvalidDataException("Invalid CurrentMenu found!"); //TODO: very ugly case scenario. What to do?
             }
             catch (JsonSerializationException e)
             {
-                Console.WriteLine("Fetched invalid CurrentMenu data." + e.Message);
+                Console.WriteLine("CurrentMenu data has invalid values " + e.Message);
             }
 
             return res;

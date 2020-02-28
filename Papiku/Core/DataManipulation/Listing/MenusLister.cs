@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using static Papiku.Helpers.IO.InputValidator;
 using static System.Console;
+using static Papiku.Helpers.PrinterWizard.SimplePrinter;
+using System;
 
 namespace Papiku.Core.DataManipulation.Listing
 {
@@ -47,8 +49,11 @@ namespace Papiku.Core.DataManipulation.Listing
             while (option != 9)
             {
                 PrintListerMenu();
-                option = ReadIntegerAndValidate();
-                menuListers[option - 1].Execute(); //orice lister stie ce optiune este in meniu
+                option = ReadInteger();
+                if (option <= menuListers.Count)
+                    menuListers[option - 1].Execute(); //orice lister stie ce optiune este in meniu
+                else
+                    PrintInvalidInput();
             }
         }
 
@@ -69,24 +74,5 @@ namespace Papiku.Core.DataManipulation.Listing
                 else return -1;
             });
         }
-
-        //private ILister currentMenusLister;
-        //private ILister dailyMenusLister;
-        //private ILister weeklyMenusLister;
-        //evident, pentur ca un lister stie ce optiune este in meniu, aici nu pot exista listere cu aceeasi optiune
-        /*public MenusLister(params ILister[] listers)
-        {
-        }
-        public MenusLister(IList<ILister> listers)
-        {
-        }*/
-        //un ILister sa stie el ce optiune este in meniu
-        /* switch(Instance.option)
-         {
-            case 1: Instance.currentMenusLister.Execute(); break;
-            case 2: Instance.dailyMenusLister.Execute(); break;
-            case 3: Instance.weeklyMenusLister.Execute(); break;
-             default: break;
-         }*/
     }
 }

@@ -1,11 +1,13 @@
 ﻿using Microsoft.Extensions.Logging;
-using Papiku.Core;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Papiku
+namespace Papiku.Helpers.Logger
 {
-    internal class Program
+    internal class LoggerHelper
     {
-        private static void Main(string[] args)
+        public static ILogger DefaultLogger<T>()
         {
             var loggerFactory = LoggerFactory.Create(builder =>
             {
@@ -16,12 +18,8 @@ namespace Papiku
                     .AddConsole()
                     .AddEventLog();
             });
-            ILogger logger = loggerFactory.CreateLogger<Program>();
-
-            //  logger.LogInformation("Example log message");
-            //  logger.LogWarning("I am a warning!");
-
-            PapikuEntryPoint.Instance.Start();
+            ILogger logger = loggerFactory.CreateLogger<T>();
+            return logger;
         }
     }
 }
