@@ -1,18 +1,19 @@
 ﻿using Papiku.Core.DataManipulation.Listing;
 using System.Collections.Generic;
+using static System.Console;
 using static Papiku.Helpers.IO.InputValidator;
 using static Papiku.Helpers.PrinterWizard.SimplePrinter;
 
 namespace Papiku.Core.DataManipulation
 {
-    internal class ModifyMealsSection
+    internal class ModifyMealsSection : InteractiveComponent
     {
         public static ModifyMealsSection Instance { get; } = new ModifyMealsSection();
         private IList<IDataManipulationService> services = new List<IDataManipulationService>();
-        private int option;
 
         private ModifyMealsSection()
         {
+            AddFunctionality(MenusLister.Instance);
         }
 
         public void AddFunctionality(IDataManipulationService service)
@@ -44,33 +45,22 @@ namespace Papiku.Core.DataManipulation
             });
         }
 
-        public void Begin()
+        protected override void PrintOptions()
         {
-            Init();
-            ReadFromKeyboardAndExecute();
+            WriteLine("Please choose an option from below:\n");
+            WriteLine("1. List your meals");
+            WriteLine("2. Add a new meal");
+            WriteLine("3. Edit an existing meal");
+            WriteLine("4. Delete an existing meal");
+            WriteLine("-1. Go back\n");
         }
 
-        private void Init()
+        protected override void ExecuteOption()
         {
-            AddFunctionality(MenusLister.Instance);
-        }
-
-        private void ReadFromKeyboardAndExecute()
-        {
-            while (option != 9)
-            {
-                PrintModifyMenu();
-                option = ReadInteger();
-                if (option <= services.Count)
-                    Execute();
-                else
-                    PrintInvalidInput();
-            }
-        }
-
-        private void Execute()
-        {
-            services[option - 1].Execute();
+            if (option <= services.Count && option > 0)
+                services[option - 1].Execute();
+            else
+                PrintInvalidInput();
         }
     }
 }

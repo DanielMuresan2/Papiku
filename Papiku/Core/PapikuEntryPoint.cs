@@ -1,40 +1,22 @@
 ﻿using Papiku.Core.DataManipulation;
-using static Papiku.Helpers.IO.InputValidator;
-using static Papiku.Helpers.PrinterWizard.SimplePrinter;
+using static System.Console;
 
 namespace Papiku.Core
 {
-    internal class PapikuEntryPoint
+    internal class PapikuEntryPoint : InteractiveComponent
     {
         public static PapikuEntryPoint Instance { get; } = new PapikuEntryPoint();
-        private int option;
 
         private PapikuEntryPoint()
         {
         }
 
-        public void Start()
-        {
-            PrintWelcomeMessage();
-            ReadFromKeyboardAndExecute();
-        }
-
-        private void ReadFromKeyboardAndExecute()
-        {
-            while (option != 9)
-            {
-                PrintMainMenu();
-                option = ReadInteger();
-                ExecuteOption();
-            }
-        }
-
-        private void ExecuteOption()
+        protected override void ExecuteOption()
         {
             switch (option)
             {
                 case 1:
-                    ModifyMealsSection.Instance.Begin();
+                    ModifyMealsSection.Instance.Execute();
                     break;
 
                 case 2:
@@ -43,6 +25,14 @@ namespace Papiku.Core
 
                 default: break;
             }
+        }
+
+        protected override void PrintOptions()
+        {
+            WriteLine("Please choose an option from below:\n");
+            WriteLine("1. Modify the meals (add,edit,delete,show)");
+            WriteLine("2. Get Recommended meals");
+            WriteLine("-1. Exit Papiku\n");
         }
     }
 }

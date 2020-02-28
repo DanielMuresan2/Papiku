@@ -6,7 +6,7 @@ namespace Papiku
     {
         private static void Main(string[] args)
         {
-            PapikuEntryPoint.Instance.Start();
+            PapikuEntryPoint.Instance.Execute();
         }
     }
 }

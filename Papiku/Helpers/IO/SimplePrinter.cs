@@ -21,7 +21,7 @@ namespace Papiku.Helpers.PrinterWizard
             WriteLine("What are we going to cook for the kids?\n");
         }
 
-        public static void PrintMainMenu()
+        public static void PrintOptions()
         {
             PrintChooseOptionText();
             WriteLine("1. Modify the meals (add,edit,delete,show)");
