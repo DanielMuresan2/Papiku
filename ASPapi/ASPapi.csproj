@@ -138,7 +138,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CurrentMenu.cs" />
+    <Compile Include="Models\DailyMenu.cs" />
+    <Compile Include="Models\Food.cs" />
+    <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\TestModel.cs" />
+    <Compile Include="Models\WeeklyMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
