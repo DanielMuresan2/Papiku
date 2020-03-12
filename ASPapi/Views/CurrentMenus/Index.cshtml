@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ASPapi.Models.TestModel>
+﻿@model IEnumerable<ASPapi.Models.CurrentMenu>
 
 @{
     ViewBag.Title = "Index";
@@ -13,10 +13,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Attr1)
+            @Html.DisplayNameFor(model => model.Dessert)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Attr2)
+            @Html.DisplayNameFor(model => model.MainDish)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecondDish)
         </th>
         <th></th>
     </tr>
@@ -24,10 +27,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Attr1)
+            @Html.DisplayFor(modelItem => item.Dessert)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Attr2)
+            @Html.DisplayFor(modelItem => item.MainDish)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecondDish)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

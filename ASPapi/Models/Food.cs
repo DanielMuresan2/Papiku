@@ -1,9 +1,15 @@
-﻿namespace ASPapi.Models
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace ASPapi.Models
 {
-    internal class Food
+    public class Food
     {
-        public string name { get; }
-        public decimal calories { get; }
-        public short? quantity { get; set; }
+        public int ID { get; set; }
+        public string name { get; set; }
+        public decimal calories { get; set; }
+        public short quantity { get; set; }
+
+        public ICollection<CurrentMenu> CurrentMenus { get; set; }
     }
 }

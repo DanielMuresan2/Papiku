@@ -1,9 +1,15 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace ASPapi.Models
 {
-    internal class DailyMenu : Menu
+    public class DailyMenu
     {
-        public List<CurrentMenu> currentMenus { get; set; }
+        public int ID { get; set; }
+
+        public string DayName { get; set; }
+
+        public ICollection<WeeklyMenu> WeeklyMenus { get; set; }
+        public ICollection<CurrentMenu> CurrentMenus { get; set; }
     }
 }

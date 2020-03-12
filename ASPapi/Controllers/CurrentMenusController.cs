@@ -10,107 +10,107 @@ using ASPapi.Models;
 
 namespace ASPapi.Controllers
 {
-    public class TestModelsController : Controller
+    public class CurrentMenusController : Controller
     {
-        private TestModelDBContext db = new TestModelDBContext();
+        private MigratingMenuDBContext db = new MigratingMenuDBContext();
 
-        // GET: TestModels
+        // GET: CurrentMenus
         public ActionResult Index()
         {
-            return View(db.Models.ToList());
+            return View(db.CurrentMenus.ToList());
         }
 
-        // GET: TestModels/Details/5
+        // GET: CurrentMenus/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TestModel testModel = db.Models.Find(id);
-            if (testModel == null)
+            CurrentMenu currentMenu = db.CurrentMenus.Find(id);
+            if (currentMenu == null)
             {
                 return HttpNotFound();
             }
-            return View(testModel);
+            return View(currentMenu);
         }
 
-        // GET: TestModels/Create
+        // GET: CurrentMenus/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: TestModels/Create
+        // POST: CurrentMenus/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Attr1,Attr2")] TestModel testModel)
+        public ActionResult Create([Bind(Include = "ID,Dessert,MainDish,SecondDish")] CurrentMenu currentMenu)
         {
             if (ModelState.IsValid)
             {
-                db.Models.Add(testModel);
+                db.CurrentMenus.Add(currentMenu);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(testModel);
+            return View(currentMenu);
         }
 
-        // GET: TestModels/Edit/5
+        // GET: CurrentMenus/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TestModel testModel = db.Models.Find(id);
-            if (testModel == null)
+            CurrentMenu currentMenu = db.CurrentMenus.Find(id);
+            if (currentMenu == null)
             {
                 return HttpNotFound();
             }
-            return View(testModel);
+            return View(currentMenu);
         }
 
-        // POST: TestModels/Edit/5
+        // POST: CurrentMenus/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Attr1,Attr2")] TestModel testModel)
+        public ActionResult Edit([Bind(Include = "ID,Dessert,MainDish,SecondDish")] CurrentMenu currentMenu)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(testModel).State = EntityState.Modified;
+                db.Entry(currentMenu).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(testModel);
+            return View(currentMenu);
         }
 
-        // GET: TestModels/Delete/5
+        // GET: CurrentMenus/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TestModel testModel = db.Models.Find(id);
-            if (testModel == null)
+            CurrentMenu currentMenu = db.CurrentMenus.Find(id);
+            if (currentMenu == null)
             {
                 return HttpNotFound();
             }
-            return View(testModel);
+            return View(currentMenu);
         }
 
-        // POST: TestModels/Delete/5
+        // POST: CurrentMenus/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            TestModel testModel = db.Models.Find(id);
-            db.Models.Remove(testModel);
+            CurrentMenu currentMenu = db.CurrentMenus.Find(id);
+            db.CurrentMenus.Remove(currentMenu);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
