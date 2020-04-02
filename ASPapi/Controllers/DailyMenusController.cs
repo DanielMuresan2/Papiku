@@ -10,107 +10,112 @@ using ASPapi.Models;
 
 namespace ASPapi.Controllers
 {
-    public class CurrentMenusController : Controller
+    public class DailyMenusController : Controller
     {
         private MigratingMenuDBContext db = new MigratingMenuDBContext();
 
-        // GET: CurrentMenus
+        // GET: DailyMenus
         public ActionResult Index()
         {
-            return View(db.CurrentMenus.Include(t => t.DailyMenus).ToList());
+            return View(db.DailyMenus.ToList());
         }
 
-        // GET: CurrentMenus/Details/5
+        // GET: DailyMenus/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CurrentMenu currentMenu = db.CurrentMenus.Find(id);
-            if (currentMenu == null)
+            DailyMenu dailyMenu = db.DailyMenus.Find(id);
+            if (dailyMenu == null)
             {
                 return HttpNotFound();
             }
-            return View(currentMenu);
+            return View(dailyMenu);
         }
 
-        // GET: CurrentMenus/Create
+        // GET: DailyMenus/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: CurrentMenus/Create
+        // POST: DailyMenus/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Dessert,MainDish,SecondDish")] CurrentMenu currentMenu)
+        public ActionResult Create([Bind(Include = "ID,DayName,CurrentMenu")] DailyMenu dailyMenu)
         {
+            //if (string.IsNullOrEmpty(dailyMenu.DayName)) //how to correctly validate?
+            //{
+            //   ModelState.AddModelError(dailyMenu.DayName, "Empty Day name!");
+            //}
+
             if (ModelState.IsValid)
             {
-                db.CurrentMenus.Add(currentMenu);
+                db.DailyMenus.Add(dailyMenu);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(currentMenu);
+            return View(dailyMenu);
         }
 
-        // GET: CurrentMenus/Edit/5
+        // GET: DailyMenus/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CurrentMenu currentMenu = db.CurrentMenus.Find(id);
-            if (currentMenu == null)
+            DailyMenu dailyMenu = db.DailyMenus.Find(id);
+            if (dailyMenu == null)
             {
                 return HttpNotFound();
             }
-            return View(currentMenu);
+            return View(dailyMenu);
         }
 
-        // POST: CurrentMenus/Edit/5
+        // POST: DailyMenus/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Dessert,MainDish,SecondDish")] CurrentMenu currentMenu)
+        public ActionResult Edit([Bind(Include = "ID,DayName")] DailyMenu dailyMenu)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(currentMenu).State = EntityState.Modified;
+                db.Entry(dailyMenu).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(currentMenu);
+            return View(dailyMenu);
         }
 
-        // GET: CurrentMenus/Delete/5
+        // GET: DailyMenus/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CurrentMenu currentMenu = db.CurrentMenus.Find(id);
-            if (currentMenu == null)
+            DailyMenu dailyMenu = db.DailyMenus.Find(id);
+            if (dailyMenu == null)
             {
                 return HttpNotFound();
             }
-            return View(currentMenu);
+            return View(dailyMenu);
         }
 
-        // POST: CurrentMenus/Delete/5
+        // POST: DailyMenus/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CurrentMenu currentMenu = db.CurrentMenus.Find(id);
-            db.CurrentMenus.Remove(currentMenu);
+            DailyMenu dailyMenu = db.DailyMenus.Find(id);
+            db.DailyMenus.Remove(dailyMenu);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
