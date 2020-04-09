@@ -28,6 +28,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Angular(1)", "Angular\", "{
 		SlnRelativePath = "Angular\"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{780E9ACA-7F67-4C92-AD16-560A2D525DC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{A185E07F-37A1-411F-97AB-E9CDC0400C56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A185E07F-37A1-411F-97AB-E9CDC0400C56}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{A185E07F-37A1-411F-97AB-E9CDC0400C56}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{780E9ACA-7F67-4C92-AD16-560A2D525DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{780E9ACA-7F67-4C92-AD16-560A2D525DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{780E9ACA-7F67-4C92-AD16-560A2D525DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{780E9ACA-7F67-4C92-AD16-560A2D525DC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

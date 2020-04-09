@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MenusDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MenusDB.dbo.DailyScheduleProgram' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DailyScheduleProgram">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="Date" Type="datetime" />
+          <Property Name="MenuID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FoodDemandsTable">
+          <Key>
+            <PropertyRef Name="RequestID" />
+          </Key>
+          <Property Name="RequestID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FoodID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Requested Quantity" Type="float" Nullable="false" />
+          <Property Name="Received Quantity" Type="float" Nullable="false" />
+          <Property Name="Date Order" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FoodTable">
+          <Key>
+            <PropertyRef Name="FoodID" />
+          </Key>
+          <Property Name="FoodID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" />
+          <Property Name="UM" Type="nvarchar" MaxLength="6" />
+          <Property Name="Price per Unit" Type="float" />
+          <Property Name="Calories" Type="float" />
+        </EntityType>
+        <EntityType Name="MenusTable">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MenusDB.dbo.MenusToFoodTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MenusToFoodTable">
+          <Key>
+            <PropertyRef Name="MenuID" />
+            <PropertyRef Name="FoodID" />
+          </Key>
+          <Property Name="MenuID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FoodID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__DailySche__MenuI__30F848ED">
+          <End Role="MenusTable" Type="Self.MenusTable" Multiplicity="1" />
+          <End Role="DailyScheduleProgram" Type="Self.DailyScheduleProgram" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MenusTable">
+              <PropertyRef Name="MenuID" />
+            </Principal>
+            <Dependent Role="DailyScheduleProgram">
+              <PropertyRef Name="MenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FoodDeman__FoodI__3F466844">
+          <End Role="FoodTable" Type="Self.FoodTable" Multiplicity="1" />
+          <End Role="FoodDemandsTable" Type="Self.FoodDemandsTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodTable">
+              <PropertyRef Name="FoodID" />
+            </Principal>
+            <Dependent Role="FoodDemandsTable">
+              <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MenusToFo__FoodI__33D4B598">
+          <End Role="FoodTable" Type="Self.FoodTable" Multiplicity="1" />
+          <End Role="MenusToFoodTable" Type="Self.MenusToFoodTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodTable">
+              <PropertyRef Name="FoodID" />
+            </Principal>
+            <Dependent Role="MenusToFoodTable">
+              <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MenusToFo__MenuI__32E0915F">
+          <End Role="MenusTable" Type="Self.MenusTable" Multiplicity="1" />
+          <End Role="MenusToFoodTable" Type="Self.MenusToFoodTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenusTable">
+              <PropertyRef Name="MenuID" />
+            </Principal>
+            <Dependent Role="MenusToFoodTable">
+              <PropertyRef Name="MenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MenusDBModelStoreContainer">
+          <EntitySet Name="FoodDemandsTable" EntityType="Self.FoodDemandsTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FoodTable" EntityType="Self.FoodTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenusTable" EntityType="Self.MenusTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DailyScheduleProgram" EntityType="Self.DailyScheduleProgram" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DailyScheduleProgram].[Date] AS [Date], 
+    [DailyScheduleProgram].[MenuID] AS [MenuID]
+    FROM [dbo].[DailyScheduleProgram] AS [DailyScheduleProgram]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MenusToFoodTable" EntityType="Self.MenusToFoodTable" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MenusToFoodTable].[MenuID] AS [MenuID], 
+    [MenusToFoodTable].[FoodID] AS [FoodID]
+    FROM [dbo].[MenusToFoodTable] AS [MenusToFoodTable]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__DailySche__MenuI__30F848ED" Association="Self.FK__DailySche__MenuI__30F848ED">
+            <End Role="MenusTable" EntitySet="MenusTable" />
+            <End Role="DailyScheduleProgram" EntitySet="DailyScheduleProgram" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FoodDeman__FoodI__3F466844" Association="Self.FK__FoodDeman__FoodI__3F466844">
+            <End Role="FoodTable" EntitySet="FoodTable" />
+            <End Role="FoodDemandsTable" EntitySet="FoodDemandsTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MenusToFo__FoodI__33D4B598" Association="Self.FK__MenusToFo__FoodI__33D4B598">
+            <End Role="FoodTable" EntitySet="FoodTable" />
+            <End Role="MenusToFoodTable" EntitySet="MenusToFoodTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MenusToFo__MenuI__32E0915F" Association="Self.FK__MenusToFo__MenuI__32E0915F">
+            <End Role="MenusTable" EntitySet="MenusTable" />
+            <End Role="MenusToFoodTable" EntitySet="MenusToFoodTable" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MenusDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FoodDemandsTable">
+          <Key>
+            <PropertyRef Name="RequestID" />
+          </Key>
+          <Property Name="RequestID" Type="Guid" Nullable="false" />
+          <Property Name="FoodID" Type="Guid" Nullable="false" />
+          <Property Name="Requested_Quantity" Type="Double" Nullable="false" />
+          <Property Name="Received_Quantity" Type="Double" Nullable="false" />
+          <Property Name="Date_Order" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="FoodTable" Relationship="Self.FK__FoodDeman__FoodI__3F466844" FromRole="FoodDemandsTable" ToRole="FoodTable" />
+        </EntityType>
+        <EntityType Name="FoodTable">
+          <Key>
+            <PropertyRef Name="FoodID" />
+          </Key>
+          <Property Name="FoodID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UM" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="Price_per_Unit" Type="Double" />
+          <Property Name="Calories" Type="Double" />
+          <NavigationProperty Name="FoodDemandsTables" Relationship="Self.FK__FoodDeman__FoodI__3F466844" FromRole="FoodTable" ToRole="FoodDemandsTable" />
+          <NavigationProperty Name="MenusTables" Relationship="Self.MenusToFoodTable" FromRole="FoodTable" ToRole="MenusTable" />
+        </EntityType>
+        <EntityType Name="MenusTable">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DailyScheduleProgram" Relationship="Self.FK__DailySche__MenuI__30F848ED" FromRole="MenusTable" ToRole="DailyScheduleProgram" />
+          <NavigationProperty Name="FoodTables" Relationship="Self.MenusToFoodTable" FromRole="MenusTable" ToRole="FoodTable" />
+        </EntityType>
+        <EntityType Name="DailyScheduleProgram">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="MenuID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="MenusTable" Relationship="Self.FK__DailySche__MenuI__30F848ED" FromRole="DailyScheduleProgram" ToRole="MenusTable" />
+        </EntityType>
+        <Association Name="FK__FoodDeman__FoodI__3F466844">
+          <End Role="FoodTable" Type="Self.FoodTable" Multiplicity="1" />
+          <End Role="FoodDemandsTable" Type="Self.FoodDemandsTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodTable">
+              <PropertyRef Name="FoodID" />
+            </Principal>
+            <Dependent Role="FoodDemandsTable">
+              <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DailySche__MenuI__30F848ED">
+          <End Role="MenusTable" Type="Self.MenusTable" Multiplicity="1" />
+          <End Role="DailyScheduleProgram" Type="Self.DailyScheduleProgram" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MenusTable">
+              <PropertyRef Name="MenuID" />
+            </Principal>
+            <Dependent Role="DailyScheduleProgram">
+              <PropertyRef Name="MenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MenusToFoodTable">
+          <End Role="FoodTable" Type="Self.FoodTable" Multiplicity="*" />
+          <End Role="MenusTable" Type="Self.MenusTable" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="MenusDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FoodDemandsTables" EntityType="Self.FoodDemandsTable" />
+          <EntitySet Name="FoodTables" EntityType="Self.FoodTable" />
+          <EntitySet Name="MenusTables" EntityType="Self.MenusTable" />
+          <EntitySet Name="DailySchedulePrograms" EntityType="Self.DailyScheduleProgram" />
+          <AssociationSet Name="FK__FoodDeman__FoodI__3F466844" Association="Self.FK__FoodDeman__FoodI__3F466844">
+            <End Role="FoodTable" EntitySet="FoodTables" />
+            <End Role="FoodDemandsTable" EntitySet="FoodDemandsTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DailySche__MenuI__30F848ED" Association="Self.FK__DailySche__MenuI__30F848ED">
+            <End Role="MenusTable" EntitySet="MenusTables" />
+            <End Role="DailyScheduleProgram" EntitySet="DailySchedulePrograms" />
+          </AssociationSet>
+          <AssociationSet Name="MenusToFoodTable" Association="Self.MenusToFoodTable">
+            <End Role="FoodTable" EntitySet="FoodTables" />
+            <End Role="MenusTable" EntitySet="MenusTables" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MenusDBModelStoreContainer" CdmEntityContainer="MenusDBEntities">
+          <EntitySetMapping Name="FoodDemandsTables">
+            <EntityTypeMapping TypeName="MenusDBModel.FoodDemandsTable">
+              <MappingFragment StoreEntitySet="FoodDemandsTable">
+                <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+                <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+                <ScalarProperty Name="Requested_Quantity" ColumnName="Requested Quantity" />
+                <ScalarProperty Name="Received_Quantity" ColumnName="Received Quantity" />
+                <ScalarProperty Name="Date_Order" ColumnName="Date Order" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodTables">
+            <EntityTypeMapping TypeName="MenusDBModel.FoodTable">
+              <MappingFragment StoreEntitySet="FoodTable">
+                <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UM" ColumnName="UM" />
+                <ScalarProperty Name="Price_per_Unit" ColumnName="Price per Unit" />
+                <ScalarProperty Name="Calories" ColumnName="Calories" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenusTables">
+            <EntityTypeMapping TypeName="MenusDBModel.MenusTable">
+              <MappingFragment StoreEntitySet="MenusTable">
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DailySchedulePrograms">
+            <EntityTypeMapping TypeName="MenusDBModel.DailyScheduleProgram">
+              <MappingFragment StoreEntitySet="DailyScheduleProgram">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="MenusToFoodTable" TypeName="MenusDBModel.MenusToFoodTable" StoreEntitySet="MenusToFoodTable">
+            <EndProperty Name="FoodTable">
+              <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+            </EndProperty>
+            <EndProperty Name="MenusTable">
+              <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

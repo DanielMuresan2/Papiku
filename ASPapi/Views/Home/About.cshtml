@@ -1,5 +1,11 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-@Scripts.Render("~/bundles/angular")
+@section Scripts {
+    <script type="text/javascript" src="~/Angular/libs/runtime.js"></script>
+    <script type="text/javascript" src="~/Angular/libs/polyfills.js"></script>
+    <script type="text/javascript" src="~/Angular/libs/styles.js"></script>
+    <script type="text/javascript" src="~/Angular/libs/vendor.js"></script>
+    <script type="text/javascript" src="~/Angular/libs/main.js"></script>
+}
 <app-root></app-root>
